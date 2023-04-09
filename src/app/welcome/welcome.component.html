@@ -2,20 +2,10 @@
     <header>
         <h2>Logo</h2>
         <nav>
-            <a routerLink="about">About Us</a>
-            <a routerLink="contact">Contact Us</a>
+            <a [routerLink]="['/welcome', 'about']">About Us</a>
+            <a [routerLink]="['/welcome', 'contact']">Contact Us</a>
         </nav>
     </header>
-    <div class="sections">
-        <p class="box__1__2">Sportz Let's Join The Right Team The right Time</p>
-        <img class="box__1__1" src="../../assets/sports/basketball.svg" alt="basketball">
-        <img class="box__1__3" src="../../assets/sports/football.svg" alt="basketball">
-        <img class="box__2__2" src="../../assets/sports/football2.svg" alt="basketball">
-        <img class="box__3__1" src="../../assets/sports/tennis.svg" alt="basketball">
-        <div class="box__3__3">
-            <a routerLink="signup" href="">Sign Up</a>
-            <a routerLink="login">Log In</a>
-        </div>
-    </div>
+    <router-outlet></router-outlet>
     <footer>© 2023 Sportz, Inc. All rights reserved.</footer>
 </div>
