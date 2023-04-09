@@ -1,31 +1,41 @@
 <section class="home">
     <header>
-        <form class="search" (input)="search($event)">
-            <input type="text" placeholder="Search matches, players...">
+        <form class="search" (submit)="search($event)">
+            <input type="text" placeholder="Search matches, players..." [value]="searchTerm" (input)="onSearchInput($event)">
+            <button type="button" (click)="toggleFilter()">
+                <span *ngIf="isFilterClosed" class="material-symbols-outlined">tune</span>
+                <span *ngIf="!isFilterClosed" class="material-symbols-outlined">close</span>
+            </button>
             <button type="submit">
                 <span class="material-symbols-outlined">search</span>
             </button>
+            <app-filters *ngIf="!isFilterClosed"></app-filters>
         </form>
         <nav>
             <a [routerLink]="['/home', 'feed']" routerLinkActive="active-link">
                 <span class="material-symbols-outlined">home</span>
-                <span>Feed</span>
+                <span class="text">Feed</span>
             </a>
-            <a [routerLink]="['/home', 'my-matches']" routerLinkActive="active-link">
-                <span class="material-symbols-outlined">all_match</span>
-                <span>My Matches</span>
+            <a [routerLink]="['/home', 'new']" routerLinkActive="active-link">
+                <span class="material-symbols-outlined">add</span>
+                <span class="text">New</span>
             </a>
             <a [routerLink]="['/home', 'chats']" routerLinkActive="active-link">
                 <span class="material-symbols-outlined">chat</span>
-                <span>Chat Rooms</span>
+                <span class="text">Chat Rooms</span>
             </a>
-            <a [routerLink]="['/home', 'calendar']" routerLinkActive="active-link">
-                <span class="material-symbols-outlined">calendar_month</span>
-                <span>Calendar</span>
+            <a [routerLink]="['/home', 'notifications']" routerLinkActive="active-link">
+                <span class="material-symbols-outlined">notifications</span>
+                <span class="text">Notifications</span>
             </a>
         </nav>
     </header>
     <section class="browser">
-        <router-outlet></router-outlet>
+        <div class="main__browser"><router-outlet></router-outlet></div>
+        <div class="side__bar">
+            <app-calendar></app-calendar>
+            <app-my-matches></app-my-matches>
+            <app-suggestions></app-suggestions>
+        </div>
     </section>
 </section>

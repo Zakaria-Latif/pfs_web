@@ -1,0 +1,126 @@
+.match{
+    padding: 1rem;
+    display: grid;
+    gap: 0.5rem;
+    width: 100%;
+    margin: auto;
+    font-family: Poppins;
+    transition: all 300ms ease-in-out;
+    background-color: rgb(249, 251, 253);
+    margin-bottom: 0.2rem;
+}
+
+button{
+    background-color: rgb(49, 11, 83);
+    color: white;
+    border: none;
+    outline: none;
+    padding: 0.3rem;
+    text-align: center;
+    min-width: 4rem;
+    border-radius: 0.2rem;
+    cursor: pointer;
+}
+
+.head button{
+    border-radius: 1rem;
+    padding: 0.5rem;
+}
+
+
+.match .widgets{
+    display: grid;
+}
+
+.match .buttons, .head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.buttons__links button{
+    font-weight: 600;
+    padding: 0.4rem 0.6rem;
+}
+
+.head{
+    display: flex;
+    /* justify-content: spa; */
+}
+
+.img__wrapper{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    overflow: hidden;
+    /* border: 0.15rem solid rgb(110, 110, 187); */
+    display: grid;
+    place-items: center;
+}
+
+.img__wrapper img{
+    width: 100%;
+    height: auto;
+}
+
+.head .name{
+    color: rgb(110, 110, 187);
+}
+
+.coords{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.coords .coord{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.5rem;
+    place-items: center;
+}
+
+.coord span{
+    color: rgb(12, 12, 87);
+}
+
+.coord p{
+    font-weight: 800;
+    font-size: small;
+}
+.widgets section{
+    font-family: 800;
+    font-size: smaller;
+}
+
+.img__border{
+    border: 1px solid violet;
+    width: 1.5rem;
+    height: 1.5rem;
+    display: inline-block;
+}
+
+.members{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.members p{
+    font-size: small;
+    
+}
+
+.avas{
+    position: relative;
+}
+
+.member__ava{
+    position: absolute;
+    inset: 0 0 0 0;
+    margin: 1px;
+}

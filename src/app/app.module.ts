@@ -14,6 +14,13 @@ import { ChatsComponent } from './home/chats/chats.component';
 import { MyMatchesComponent } from './home/my-matches/my-matches.component';
 import { FeedComponent } from './home/feed/feed.component';
 import { CalendarComponent } from './home/calendar/calendar.component';
+import { NewComponent } from './home/new/new.component';
+import { SuggestionsComponent } from './home/suggestions/suggestions.component';
+import { NotificationsComponent } from './home/notifications/notifications.component';
+import { MatchComponent } from './home/my-matches/match/match.component';
+import { SearchComponent } from './home/search/search.component';
+import { FormsModule } from '@angular/forms';
+import { FiltersComponent } from './home/search/filters/filters.component';
 
 @NgModule({
   declarations: [
@@ -28,11 +35,19 @@ import { CalendarComponent } from './home/calendar/calendar.component';
     ChatsComponent,
     MyMatchesComponent,
     FeedComponent,
-    CalendarComponent
+    CalendarComponent,
+    NewComponent,
+    SuggestionsComponent,
+    NotificationsComponent,
+    MatchComponent,
+    SearchComponent,
+    FiltersComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

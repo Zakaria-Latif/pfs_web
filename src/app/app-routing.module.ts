@@ -11,6 +11,10 @@ import { FeedComponent } from './home/feed/feed.component';
 import { ChatsComponent } from './home/chats/chats.component';
 import { CalendarComponent } from './home/calendar/calendar.component';
 import { MyMatchesComponent } from './home/my-matches/my-matches.component';
+import { NewComponent } from './home/new/new.component';
+import { NotificationsComponent } from './home/notifications/notifications.component';
+import { SuggestionsComponent } from './home/suggestions/suggestions.component';
+import { SearchComponent } from './home/search/search.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "/welcome", pathMatch: 'full' },
@@ -32,8 +36,12 @@ const routes: Routes = [
       { path: "chats", component: ChatsComponent },
       { path: "calendar", component: CalendarComponent },
       { path: "my-matches", component: MyMatchesComponent },
-      
+      { path: "new", component: NewComponent },
+      { path: "notifications", component: NotificationsComponent },
+      { path: "suggestions", component: SuggestionsComponent },
+      { path: "search", component: SearchComponent },
     ]
+    
   },
   { path: "**", component: WelcomeComponent },
 ];

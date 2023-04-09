@@ -1,0 +1,9 @@
+.search__page{
+    display: grid;
+    place-items: center;
+}
+
+.search__page img{
+    width: 40%;
+    height: auto;
+}

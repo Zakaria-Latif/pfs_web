@@ -1,0 +1,12 @@
+.filters{
+    position: absolute;
+    inset: 110% 0 auto 0;
+    /* width: 95%; */
+    background-color: rgb(18, 18, 138);
+    color: beige;
+    max-height: 60vh;
+    overflow-y: auto;
+    margin-left: 0;
+    padding: 1rem;
+    transform: all 1000ms ease-out;
+}
