@@ -1,1 +1,31 @@
-<p>home works!</p>
+<section class="home">
+    <header>
+        <form class="search" (input)="search($event)">
+            <input type="text" placeholder="Search matches, players...">
+            <button type="submit">
+                <span class="material-symbols-outlined">search</span>
+            </button>
+        </form>
+        <nav>
+            <a [routerLink]="['/home', 'feed']" routerLinkActive="active-link">
+                <span class="material-symbols-outlined">home</span>
+                <span>Feed</span>
+            </a>
+            <a [routerLink]="['/home', 'my-matches']" routerLinkActive="active-link">
+                <span class="material-symbols-outlined">all_match</span>
+                <span>My Matches</span>
+            </a>
+            <a [routerLink]="['/home', 'chats']" routerLinkActive="active-link">
+                <span class="material-symbols-outlined">chat</span>
+                <span>Chat Rooms</span>
+            </a>
+            <a [routerLink]="['/home', 'calendar']" routerLinkActive="active-link">
+                <span class="material-symbols-outlined">calendar_month</span>
+                <span>Calendar</span>
+            </a>
+        </nav>
+    </header>
+    <section class="browser">
+        <router-outlet></router-outlet>
+    </section>
+</section>

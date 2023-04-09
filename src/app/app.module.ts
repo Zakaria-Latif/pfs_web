@@ -10,6 +10,10 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './welcome/about/about.component';
 import { ContactComponent } from './welcome/contact/contact.component';
 import { DefaultComponent } from './welcome/default/default.component';
+import { ChatsComponent } from './home/chats/chats.component';
+import { MyMatchesComponent } from './home/my-matches/my-matches.component';
+import { FeedComponent } from './home/feed/feed.component';
+import { CalendarComponent } from './home/calendar/calendar.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,11 @@ import { DefaultComponent } from './welcome/default/default.component';
     HomeComponent,
     AboutComponent,
     ContactComponent,
-    DefaultComponent
+    DefaultComponent,
+    ChatsComponent,
+    MyMatchesComponent,
+    FeedComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,

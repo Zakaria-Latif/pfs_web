@@ -7,6 +7,10 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { ContactComponent } from './welcome/contact/contact.component';
 import { AboutComponent } from './welcome/about/about.component';
 import { DefaultComponent } from './welcome/default/default.component';
+import { FeedComponent } from './home/feed/feed.component';
+import { ChatsComponent } from './home/chats/chats.component';
+import { CalendarComponent } from './home/calendar/calendar.component';
+import { MyMatchesComponent } from './home/my-matches/my-matches.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "/welcome", pathMatch: 'full' },
@@ -20,7 +24,17 @@ const routes: Routes = [
       {path: 'signup', component: SignupComponent}, 
     ]
   },
-  { path: "home", component: HomeComponent },
+  { 
+    path: "home", component: HomeComponent ,
+    children: [
+      { path: "", component: FeedComponent },
+      { path: "feed", component: FeedComponent },
+      { path: "chats", component: ChatsComponent },
+      { path: "calendar", component: CalendarComponent },
+      { path: "my-matches", component: MyMatchesComponent },
+      
+    ]
+  },
   { path: "**", component: WelcomeComponent },
 ];
 

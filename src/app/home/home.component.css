@@ -1,0 +1,63 @@
+.home{
+    padding: 1rem;
+    font-family: Poppins;
+}
+
+.search{
+    border: 0.1rem solid rgb(176, 176, 219);
+    padding: 0.2rem;
+}
+
+.search > input{
+    outline: none;
+    border: none;
+    font-size: 1rem;
+}
+
+.search > button{
+    border: none;
+    outline: none;
+    background-color: white;
+    cursor: pointer;
+}
+.home header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4rem;
+}
+header form{
+    width: 60vw;
+    display: grid;
+    grid-template-columns: 1fr auto;
+}
+
+header nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: max-content;
+    gap: 2rem;
+}
+
+nav a{
+    display: grid;
+    place-items: center;
+    gap: 0.5rem;
+    grid-template-columns: auto auto;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+a > span{
+    font-weight: 800;
+
+}
+
+.active-link{
+    background-color: rgb(11, 11, 92);
+    color: aqua;
+    padding: 0.3rem;
+    border-radius: 0.3rem;
+    transition: all 200ms ease-in;
+}
