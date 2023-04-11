@@ -1,0 +1,38 @@
+.new{
+    margin: 1rem auto;
+    width: 80%;
+    display: grid;
+    place-items: center;
+    gap: 1.6rem;
+    font-family: Poppins;
+}
+
+.new .group{
+    width: 100%;
+    
+}
+
+.group input{
+    outline: none;
+    padding: 0.5rem;
+    width: 100%;
+    border: 0.1rem solid rgb(235, 207, 235);
+    font-size: 1rem;
+    height: 1.5rem;
+}
+
+.new button{
+    min-width: 20%;
+    background-color: rgb(12, 12, 88);
+    color: white;
+    outline: none;
+    border: none;
+    padding: 0.6rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow:  5px 5px 10px #d3d3d3,
+             -5px -5px 10px #ededed;
+    border-radius: 0.3rem;
+}
+
+
