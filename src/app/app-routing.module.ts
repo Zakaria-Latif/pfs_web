@@ -15,6 +15,8 @@ import { NewComponent } from './home/new/new.component';
 import { NotificationsComponent } from './home/notifications/notifications.component';
 import { SuggestionsComponent } from './home/suggestions/suggestions.component';
 import { SearchComponent } from './home/search/search.component';
+import { ShortChatComponent } from './home/chats/short-chat/short-chat.component';
+import { ExpaindedChatComponent } from './home/chats/expainded-chat/expainded-chat.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "/welcome", pathMatch: 'full' },
@@ -34,6 +36,7 @@ const routes: Routes = [
       { path: "", component: FeedComponent },
       { path: "feed", component: FeedComponent },
       { path: "chats", component: ChatsComponent },
+      { path: "expainded-chat", component: ExpaindedChatComponent },
       { path: "calendar", component: CalendarComponent },
       { path: "my-matches", component: MyMatchesComponent },
       { path: "new", component: NewComponent },

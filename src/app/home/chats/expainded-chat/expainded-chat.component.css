@@ -1,0 +1,168 @@
+.conversation{
+    height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+.chat__msgs{
+    height: 100%;
+    max-height: 100%;
+    overflow-y: auto;
+}
+
+.send__form{
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1rem;
+    padding-top: 0.2em;
+    padding-bottom: 0.2rem;
+    place-items: center;
+}
+
+.send__form > span{
+    color: #4727bd;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.send__form > textarea{
+    width: 99%;
+    height: 2rem;
+    outline: none;
+    resize: none;
+    font-family: Poppins;
+    border: 0.1rem solid violet;
+
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header > .img__name{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 1rem;
+}
+
+.image__wrapper{
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+}
+
+.title__time{
+    height: max-content;
+}
+
+.title__time > .time{
+    font-size: small;
+    color: #818183;
+}
+
+.image__wrapper img{
+    width: 100%;
+    height: auto;
+}
+
+.more{
+    display: grid;
+    height: 100%;
+    place-items: center;
+}
+
+.more > .material-symbols-outlined{
+    justify-self: end;
+    align-self: center;
+    cursor: pointer;
+}
+
+.more > .members{
+    font-weight: 400;
+    font-size: small;
+    align-self: flex-end;
+}
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #dbdde6;
+    border-radius: 1rem;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #230f6d;
+  }
+
+.mg__image{
+    width: 2rem;
+    height: 2rem;
+}
+
+.message{
+    max-width: 70%;
+    display: grid;
+    margin: auto 1rem;
+}
+
+
+.message > .time__stamp{
+    justify-self: end;
+    font-size: x-small;
+    font-weight: 600;
+    color: #747375;
+}
+.message__header{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 1rem;
+    place-items: center;
+    width: max-content;
+}
+
+.message__header > p{
+    font-size: small;
+    font-weight: 600;
+}
+
+.message .text{
+    padding: 0.6rem;
+    margin: 0 0.2rem;
+    box-shadow:  6px 6px 8px #d9d9d9,
+             -6px -6px 8px #e7e7e7;
+}
+
+.my__message{
+    border-radius: 1rem 0 1rem 1rem;
+}
+.your__message{
+    border-radius: 0 1rem 1rem 1rem;
+}
+
+.chat__msgs{
+    display: grid;
+}
+
+.chat__msgs > .my__card{
+    justify-self: end;
+}
+
+.chat__msgs > .your__card{
+    justify-self: start;
+}

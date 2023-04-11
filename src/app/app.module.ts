@@ -21,6 +21,9 @@ import { MatchComponent } from './home/my-matches/match/match.component';
 import { SearchComponent } from './home/search/search.component';
 import { FormsModule } from '@angular/forms';
 import { FiltersComponent } from './home/search/filters/filters.component';
+import { NotificationComponent } from './home/notifications/notification/notification.component';
+import { ExpaindedChatComponent } from './home/chats/expainded-chat/expainded-chat.component';
+import { ShortChatComponent } from './home/chats/short-chat/short-chat.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,10 @@ import { FiltersComponent } from './home/search/filters/filters.component';
     NotificationsComponent,
     MatchComponent,
     SearchComponent,
-    FiltersComponent
+    FiltersComponent,
+    NotificationComponent,
+    ExpaindedChatComponent,
+    ShortChatComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,58 @@
+.notification{
+    display: grid;
+    padding: 1rem;
+    /* width: 80%; */
+    margin: auto;
+    border-bottom: 1px solid rgb(236, 238, 248);
+}
+
+.notification > .header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header  > h4 > span{
+    color: rgb(44, 9, 85);
+
+}
+
+.header p{
+    font-size: small;
+    font-weight: 800;
+    display: grid;
+    grid-template-columns: auto auto;
+    place-items: center;
+    gap: 1rem;
+}
+
+p > .material-symbols-outlined{
+    font-weight: 800;
+    color: rgb(175, 172, 172);
+}
+
+.notification > .description{
+    font-weight: 300;
+}
+
+.notification > .actions__wrapper{
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.actions > button{
+    margin-right: 2rem;
+    background-color: rgb(15, 15, 88);
+    color: aqua;
+    padding: 0.4rem;
+    outline: none;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    min-width: 6rem;
+}
+.delete > span{
+    color: rgb(80, 80, 145);
+    cursor: pointer;
+}
+
