@@ -10,82 +10,19 @@
         <div class="min__duration">
             <label for="duration">Min Duration:</label>
            
-            <div class="duration" id="duration">
-                <div class="line"></div>
-                <div class="group">
-                    <input type="radio" id="15min" name="duration" value="0.25">
-                    <label for="15min">15 mins</label>
-                </div>
-                <div class="group">
-                    <input type="radio" id="30min" name="duration" value="0.5">
-                    <label for="30min">30 mins</label>
-                </div>
-                <div class="group">
-                    <input type="radio" id="45min" name="duration" value="0.75">
-                    <label for="45min">45 mins</label>    
-                </div>
-                <div class="group">
-                    <input type="radio" id="60min" name="duration" value="1">
-                    <label for="60min">1 hour</label>
-                </div>
-                <div class="group">
-                    <input type="radio" id="75min" name="duration" value="1.25">
-                    <label for="75min">1 hour 15 mins</label>
-                </div>
-                <div class="group">
-                    <input type="radio" id="90min" name="duration" value="1.5">
-                    <label for="90min">1 hour 30 mins</label>
-                </div>
-                <div class="group">
-                    <input type="radio" id="105min" name="duration" value="1.75">
-                    <label for="105min">1 hour 45 mins</label>
-                </div>
-                <div class="group">
-                    <input type="radio" id="120min" name="duration" value="2">
-                    <label for="120min">2 hours</label>
-                </div>
+            <div class="range__percentage">
+                <input min="0" step="15" max="120"  [value]="minRate" (input)="handleRate($event)" type="range" name="" id="" class="min__rate">
+                <p>{{minRate}}mins</p>
             </div>
 
         </div>
         <div class="min__duration">
             <label for="duration">Max Duration:</label>
            
-            <div class="duration" id="duration">
-                <div class="line"></div>
-                <div class="group">
-                    <input type="radio" id="15min" name="duration1" value="0.25">
-                    <label for="15min">15 mins</label>
-                </div>
-                <div class="group">
-                    <input type="radio" id="30min" name="duration1" value="0.5">
-                    <label for="30min">30 mins</label>
-                </div>
-                <div class="group">
-                    <input type="radio" id="45min" name="duration1" value="0.75">
-                    <label for="45min">45 mins</label>    
-                </div>
-                <div class="group">
-                    <input type="radio" id="60min" name="duration1" value="1">
-                    <label for="60min">1 hour</label>
-                </div>
-                <div class="group">
-                    <input type="radio" id="75min" name="duration1" value="1.25">
-                    <label for="75min">1 hour 15 mins</label>
-                </div>
-                <div class="group">
-                    <input type="radio" id="90min" name="duration1" value="1.5">
-                    <label for="90min">1 hour 30 mins</label>
-                </div>
-                <div class="group">
-                    <input type="radio" id="105min" name="duration1" value="1.75">
-                    <label for="105min">1 hour 45 mins</label>
-                </div>
-                <div class="group">
-                    <input type="radio" id="120min" name="duration1" value="2">
-                    <label for="120min">2 hours</label>
-                </div>
+            <div class="range__percentage">
+                <input min="0" step="15" max="120"  [value]="minRate" (input)="handleRate($event)" type="range" name="" id="" class="min__rate">
+                <p>{{minRate}}mins</p>
             </div>
-
         </div>
         
         <div class="group date__group">
