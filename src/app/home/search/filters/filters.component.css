@@ -1,10 +1,9 @@
 .filters{
     position: absolute;
     inset: 110% 0 auto 0;
-    /* width: 95%; */
     color: rgb(18, 18, 138);
     background-color: rgb(246, 249, 252);
-    max-height: 60vh;
+    max-height: 80vh;
     overflow-y: auto;
     margin-left: 0;
     padding: 1rem;
@@ -184,9 +183,9 @@
 
 .groups > .player__group{
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto 1fr;
     gap: 0.4rem;
-    place-items: center;
+    /* place-items: center; */
     
 }
 

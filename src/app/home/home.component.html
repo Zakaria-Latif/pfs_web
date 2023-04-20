@@ -24,7 +24,26 @@
                         <span class="material-symbols-outlined">assistant</span>
                         <span class="text">Suggestions</span>
                     </a>
+                    <a [routerLink]="['/home', 'profile']" (click)="toggleBurger()" routerLinkActive="active-link">
+                        <span class="material-symbols-outlined">person</span>
+                        <span class="text">Profile</span>
+                    </a>
+                    <a [routerLink]="['/home', 'settings']" (click)="toggleBurger()" routerLinkActive="active-link">
+                        <span class="material-symbols-outlined">settings</span>
+                        <span class="text">Settings</span>
+                    </a>
+                    <a [routerLink]="['/home', 'settings']" (click)="toggleBurger()" routerLinkActive="active-link">
+                        <span class="material-symbols-outlined">dark_mode</span>
+                        <span class="text">Theme</span>
+                    </a>
                 </div>
+                <div class="links__top__right__mini">
+                    <img src="../../assets/../assets/socials/google-play-store.svg" alt="Play Store">
+                    <img src="../../assets/../assets/socials/app-store.svg" alt="App Store">
+                    <img src="../../assets/../assets/socials/instagram.svg" alt="Insagram">
+                    <img src="../../assets/../assets/socials/meta.svg" alt="Meta">
+                </div>
+                <p>© 2023 Sportz, Inc. All rights reserved.</p>
             </div>
         </div>
         <nav *ngIf="!isPhoneviewed">
@@ -47,12 +66,43 @@
         </nav>
     </header>
     <section class="browser">
-        <div class="side__bar">
-            <app-calendar></app-calendar>
-            <app-my-matches></app-my-matches>
-            <app-suggestions></app-suggestions>
+        <div class="side__bar" *ngIf="!isPhoneviewed">
+            <div class="links__top__left">
+                <a [routerLink]="['/home', 'my-matches']" (click)="toggleBurger()" routerLinkActive="active-link-bar">
+                    <span class="material-symbols-outlined">sports_soccer</span>
+                    <span class="text">My Matches</span>
+                </a>
+                <a [routerLink]="['/home', 'calendar']" (click)="toggleBurger()" routerLinkActive="active-link-bar">
+                    <span class="material-symbols-outlined">calendar_month</span>
+                    <span class="text">Calendar</span>
+                </a>
+                <a [routerLink]="['/home', 'suggestions']" (click)="toggleBurger()" routerLinkActive="active-link-bar">
+                    <span class="material-symbols-outlined">assistant</span>
+                    <span class="text">Suggestions</span>
+                </a>
+                <a [routerLink]="['/home', 'profile']" (click)="toggleBurger()" routerLinkActive="active-link-bar">
+                    <span class="material-symbols-outlined">person</span>
+                    <span class="text">Profile</span>
+                </a>
+            </div>
+            <div class="links__bottom__left">
+                <span class="material-symbols-outlined">dark_mode</span>
+                <span class="material-symbols-outlined">settings</span>
+            </div>
+            
         </div>
         <div class="main__browser"><router-outlet></router-outlet></div>
+        <div class="side__bar" *ngIf="!isPhoneviewed">
+            <div class="links__top__right">
+                <img src="../../assets/../assets/socials/google-play-store.svg" alt="Play Store">
+                <img src="../../assets/../assets/socials/app-store.svg" alt="App Store">
+                <img src="../../assets/../assets/socials/instagram.svg" alt="Insagram">
+                <img src="../../assets/../assets/socials/meta.svg" alt="Meta">
+            </div>
+            <div class="links__bottom__right">
+                <p class="links__bottom__right">© 2023 Sportz, Inc. All rights reserved.</p>
+            </div>
+        </div>
     </section>
     <div class="navigator" *ngIf="isPhoneviewed" >
         <a [routerLink]="['/home', 'feed']" routerLinkActive="active-link">
