@@ -24,6 +24,14 @@ import { FiltersComponent } from './home/search/filters/filters.component';
 import { NotificationComponent } from './home/notifications/notification/notification.component';
 import { ExpaindedChatComponent } from './home/chats/expainded-chat/expainded-chat.component';
 import { ShortChatComponent } from './home/chats/short-chat/short-chat.component';
+import { TestComponent } from './test/test.component';
+import { NgbCarouselModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SettingsComponent } from './home/settings/settings.component';
+import { ProfileComponent } from './home/profile/profile.component';
+import { SuggestionComponent } from './home/suggestions/suggestion/suggestion.component';
+import { CreatedMatchesComponent } from './home/profile/created-matches/created-matches.component';
+import { PlayedMatchesComponent } from './home/profile/played-matches/played-matches.component';
+import { PlayersCercleComponent } from './home/profile/players-cercle/players-cercle.component';
 
 @NgModule({
   declarations: [
@@ -48,13 +56,22 @@ import { ShortChatComponent } from './home/chats/short-chat/short-chat.component
     NotificationComponent,
     ExpaindedChatComponent,
     ShortChatComponent,
+    TestComponent,
+    SettingsComponent,
+    ProfileComponent,
+    SuggestionComponent,
+    CreatedMatchesComponent,
+    PlayedMatchesComponent,
+    PlayersCercleComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
-
+    FormsModule,
+    NgbCarouselModule,
+    NgbModule
   ],
+
   providers: [],
   bootstrap: [AppComponent]
 })

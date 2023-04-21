@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { MediaService } from 'src/services/media.service';
+// import { MediaService } from 'src/services/media.service';
+import { Component } from '@angular/core';
+import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-home',
@@ -10,8 +11,25 @@ import { MediaService } from 'src/services/media.service';
 export class HomeComponent {
   searchTerm: string="";
   isFilterClosed: boolean=true;
+  isBurgerOpen: boolean=false;
+  isPhoneviewed = false;
+  constructor(private router: Router, public responsive: BreakpointObserver){}
 
-  constructor(private router: Router){}
+  ngOnInit() {
+
+  this.responsive.observe("(max-width: 800px)")
+  .subscribe(result => {
+    this.isPhoneviewed = false;
+  if (result.matches) {
+    this.isPhoneviewed = true;
+  } {
+    console.log(
+    'HandsetPortrait is on'
+    );
+  }
+  });
+  }
+
   
   onSearchInput(event: Event) {
     const value = (event.target as HTMLInputElement).value;
@@ -20,6 +38,10 @@ export class HomeComponent {
 
   toggleFilter(){
     this.isFilterClosed=!this.isFilterClosed;
+  }
+
+  toggleBurger(){
+    this.isBurgerOpen=!this.isBurgerOpen;
   }
   
   search(event: Event){

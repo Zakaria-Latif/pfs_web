@@ -1,0 +1,75 @@
+.profile{
+    width: 94%;
+    max-width: 100%;
+}
+
+.profile > header{
+    position: relative;
+    background-color: rgb(232, 233, 241);
+    height: 4.3rem;
+    border-radius: 2rem;
+    display: flex;
+    background: linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(2, 2, 85) 100%);
+    padding-left: 35%;
+    color: rgb(255, 255, 255);
+    font-weight: 200;
+}
+
+header > sup{
+    font-size: small;
+    /* font-weight: 800; */
+}
+
+header > p{
+    font-weight: 600;
+    letter-spacing: 0.1rem;
+}
+
+header > .img__wrapper{
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    border: 0.15rem solid rgb(158, 158, 224);
+}
+
+.img__wrapper > img{
+    width: 100%;
+    height: auto;
+}
+
+.tabs{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.tabs a{
+    text-decoration: none;
+    border-radius: 1rem;
+    padding: 0.2rem 1rem;
+    background-color: rgb(236, 236, 245);
+    border: 0.1rem solid violet;
+    line-break: loose;
+    margin-top: 0.5rem;
+}
+.tabs a.active{
+    background-color: rgb(10, 10, 82);
+    color: white;
+}
+
+.browser__center{
+    width: 94%;
+}
+
+header > span{
+    position: absolute;
+    inset: auto 2rem 0.1rem auto;
+    color: white;
+    font-size: x-small;
+}
