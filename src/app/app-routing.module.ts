@@ -17,9 +17,17 @@ import { SuggestionsComponent } from './home/suggestions/suggestions.component';
 import { SearchComponent } from './home/search/search.component';
 import { ShortChatComponent } from './home/chats/short-chat/short-chat.component';
 import { ExpaindedChatComponent } from './home/chats/expainded-chat/expainded-chat.component';
+import { TestComponent } from './test/test.component';
+import { SettingsComponent } from './home/settings/settings.component';
+import { ProfileComponent } from './home/profile/profile.component';
+import { CreatedMatchesComponent } from './home/profile/created-matches/created-matches.component';
+import { PlayersCercleComponent } from './home/profile/players-cercle/players-cercle.component';
+import { PlayedMatchesComponent } from './home/profile/played-matches/played-matches.component';
+import { PlayersComponent } from './home/players/players.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "/welcome", pathMatch: 'full' },
+  { path: "test", component: TestComponent },
   { 
     path: "welcome", component: WelcomeComponent,
     children: [
@@ -43,6 +51,16 @@ const routes: Routes = [
       { path: "notifications", component: NotificationsComponent },
       { path: "suggestions", component: SuggestionsComponent },
       { path: "search", component: SearchComponent },
+      { path: "settings", component: SettingsComponent },
+      { path: "players-circle", component: PlayersComponent },
+      { path: "profile", component: ProfileComponent,
+        children: [
+          { path: "", component: CreatedMatchesComponent },
+          { path: "created-matches", component: CreatedMatchesComponent },
+          { path: "played-matches", component: PlayedMatchesComponent },
+          { path: "players-cercle", component: PlayersCercleComponent },
+        ]
+      },
     ]
     
   },

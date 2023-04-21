@@ -1,10 +1,12 @@
 <div class="match">
     <div class="widgets">
         <div class="head">
-            <div class="img__wrapper"><img src="../../../../assets/sports/football.svg" alt="Avatar"></div>
+            <div class="img__wrapper">
+                <img src="../../../../assets/sports/football.svg" alt="Avatar" loading="lazy">
+            </div>
             <h4 class="name">GI2 Kesh</h4>
             <button>
-                Add To Calendar
+                + To Calendar
             </button>
             <button>
                 View Members
@@ -34,13 +36,13 @@
            <div class="avas">
                 <div *ngFor="let i of items;" class="images img__wrapper img__border member__ava" 
                     [ngStyle]="{'transform': 'translateX(' + (i*80 - 80) + '%)', 'z-index': i}">
-                    <img src="../../../../assets/sports/football.svg" alt="">
+                    <img [src]="'https://i.pravatar.cc/'+i" alt="" loading="lazy">
                 </div>
            </div>
             <p>7/8 Members</p>
         </div>
         <section >Created by El Ouali 
-            <div class="img__wrapper img__border"><img src="../../../../assets/sports/football2.svg" alt="Avatar"></div> 
+            <div class="img__wrapper img__border"><img src="https://i.pravatar.cc/201" alt="Avatar"></div> 
         </section>
     </div>
     <div class="buttons buttons__links">

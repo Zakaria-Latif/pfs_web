@@ -1,3 +1,27 @@
-<section class="login">
-    Login Page
+<section class="signup">
+    <div class="signup__pic">
+        <img src="../../../assets/auth/login.svg" alt="Login">
+    </div>
+    <form class="fields">
+        <div class="field">
+            <label for="email"></label>
+            <input id="email" type="text" placeholder="Email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
+            <p>This email is not valid</p>
+        </div>
+        <div class="field">
+            <label for="password"></label>
+            <input id="password" type="password" placeholder="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}">
+            <p>Password should have at least 8 charcters, one cap and at least one special character</p>
+        </div>
+        <button (click)="login()">Log In</button>
+        <a [routerLink]="['/welcome', 'signup']">Don't Have An Account?!</a>
+        <p>Or Log In with</p>
+        <div class="icons">
+            <img src="../../../assets/socials/google.svg" alt="Google">
+            <img src="../../../assets/socials/meta.svg" alt="Meta">
+            <img src="../../../assets/socials/twitter.svg" alt="Twitter">
+            <img src="../../../assets/socials/linkedin.svg" alt="Linkedin">
+        </div>
+        <div class="forgot__password">Forgot Password ?!</div>
+    </form>
 </section>
