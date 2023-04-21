@@ -24,6 +24,10 @@
                         <span class="material-symbols-outlined">assistant</span>
                         <span class="text">Suggestions</span>
                     </a>
+                    <a [routerLink]="['/home', 'players-circle']" (click)="toggleBurger()" routerLinkActive="active-link">
+                        <span class="material-symbols-outlined">diversity_2</span>
+                        <span class="text">Your Circle</span>
+                    </a>
                     <a [routerLink]="['/home', 'profile']" (click)="toggleBurger()" routerLinkActive="active-link">
                         <span class="material-symbols-outlined">person</span>
                         <span class="text">Profile</span>
@@ -75,6 +79,10 @@
                 <a [routerLink]="['/home', 'calendar']" (click)="toggleBurger()" routerLinkActive="active-link-bar">
                     <span class="material-symbols-outlined">calendar_month</span>
                     <span class="text">Calendar</span>
+                </a>
+                <a [routerLink]="['/home', 'players-circle']" (click)="toggleBurger()" routerLinkActive="active-link-bar">
+                    <span class="material-symbols-outlined">diversity_2</span>
+                    <span class="text">Players Circle</span>
                 </a>
                 <a [routerLink]="['/home', 'suggestions']" (click)="toggleBurger()" routerLinkActive="active-link-bar">
                     <span class="material-symbols-outlined">assistant</span>

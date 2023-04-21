@@ -32,6 +32,8 @@ import { SuggestionComponent } from './home/suggestions/suggestion/suggestion.co
 import { CreatedMatchesComponent } from './home/profile/created-matches/created-matches.component';
 import { PlayedMatchesComponent } from './home/profile/played-matches/played-matches.component';
 import { PlayersCercleComponent } from './home/profile/players-cercle/players-cercle.component';
+import { PlayersComponent } from './home/players/players.component';
+import { PlayerComponent } from './home/players/player/player.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +65,8 @@ import { PlayersCercleComponent } from './home/profile/players-cercle/players-ce
     CreatedMatchesComponent,
     PlayedMatchesComponent,
     PlayersCercleComponent,
+    PlayersComponent,
+    PlayerComponent,
   ],
   imports: [
     BrowserModule,
