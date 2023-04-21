@@ -1,0 +1,58 @@
+.player{
+    display: grid;
+    margin: 1rem 0;
+    width: 100%;
+    gap: 0.3rem;
+}
+
+.player > header, .player > .main{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+header > button{
+    border-radius: 1rem;
+    background-color: rgb(13, 13, 90);
+    color: white;
+    outline: none;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.player > header > p, .player > .main > p{
+    flex-grow: 1;
+    border: 0.1rem solid rgb(245, 207, 245);
+    border-radius: 1rem;
+    padding: 0.2rem 0.5rem;
+}
+
+.player > .main > p{
+    font-weight: 600;
+    color: rgb(207, 75, 207);
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+}
+
+header > .img__wrapper{
+    display: grid;
+    place-items: center;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 0.2rem solid rgb(243, 201, 243);
+}
+
+.img__wrapper > img{
+    width: 100%;
+    height: auto;
+}
+
+.player .joined__on{
+    font-size: small;
+    font-weight: 800;
+}
