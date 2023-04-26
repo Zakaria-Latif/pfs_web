@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-match',
@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class MatchComponent {
   items: Array<number>=Array.from({length: 10}, (value, index) => index + 1);
+  @Input() isAddedToCalendar: boolean=false;
 }
