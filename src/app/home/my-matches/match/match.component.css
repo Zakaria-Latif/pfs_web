@@ -45,6 +45,7 @@ button{
     font-weight: 600;
     padding: 0.4rem 0.6rem;
     border-radius: 1rem;
+    min-width: 20%;
 }
 
 .head{

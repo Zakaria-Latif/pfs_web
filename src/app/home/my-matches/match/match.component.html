@@ -5,8 +5,11 @@
                 <img src="../../../../assets/sports/football.svg" alt="Avatar" loading="lazy">
             </div>
             <h4 class="name">GI2 Kesh</h4>
-            <button>
+            <button *ngIf="!isAddedToCalendar">
                 + To Calendar
+            </button>
+            <button *ngIf="isAddedToCalendar">
+                - From Calendar
             </button>
             <button>
                 View Members
@@ -49,6 +52,6 @@
         <button>Delete</button>
         <button>Edit</button>
         <button>Chat</button>
-        <button>Exit</button>
+        <button *ngIf="isAddedToCalendar">Reschedule</button>
     </div>
 </div>

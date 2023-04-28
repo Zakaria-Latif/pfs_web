@@ -1,0 +1,21 @@
+.matches__list{
+    padding-top: 1rem;
+    width: 94%;
+}
+
+.matches__list > header > a{
+    text-decoration: none;
+    display: grid;
+    place-items: center;
+    justify-items: start;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+}
+
+a > span{
+    font-weight: 800;
+}
+
+a > p{
+    font-size: medium;
+}
