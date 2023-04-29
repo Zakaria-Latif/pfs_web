@@ -14,10 +14,9 @@
     border-radius: 1rem;
 }
 .square > .day__num{
-    font-weight: 600;
+    font-weight: 400;
     /* opacity: 0.5; */
 }
-
 
 .day__num::after{
     content: attr(matchesNumber);
@@ -28,4 +27,21 @@
     border-radius: 50%;
     color: aliceblue;
     padding: 0.1rem 0.5rem;
+}
+
+@media screen and (max-width: 800px) {
+    .square{
+        box-shadow: none;
+        width: 60%;
+    }
+
+    .day__num::after{
+        content: attr(matchesNumber);
+        font-size: small;
+        background-color: rgb(205, 205, 235);
+        border-radius: 3rem 50% 50% 50%;
+        color: rgb(35, 17, 87);
+        margin-left: 0.4rem;
+        margin-top: 1rem;
+    }
 }

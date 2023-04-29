@@ -1,5 +1,5 @@
 .profile{
-    width: 94%;
+    width: 90%;
     max-width: 100%;
 }
 
@@ -14,11 +14,21 @@
     color: rgb(255, 255, 255);
     font-weight: 200;
     margin: auto;
+    width: 100%;
+    max-width: 100%;
+
 }
 
 @media screen and (max-width: 800px) {
     .profile > header{
-        padding-left: 4rem;
+        margin: auto; 
+        width: 100%;
+
+    }
+
+    header > p{
+        position: relative;
+        left: 2rem;
     }
 }
 

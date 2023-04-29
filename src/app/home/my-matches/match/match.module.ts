@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { MatchComponent } from './match.component';
+import { PlayerModule } from '../../players/player/player.module';
 
 
 @NgModule({
@@ -10,6 +11,7 @@ import { MatchComponent } from './match.component';
   ],
   imports: [
     CommonModule,
+    PlayerModule
   ],
   exports: [ MatchComponent ]
 })
