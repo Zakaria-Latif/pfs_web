@@ -9,7 +9,7 @@ const routes: Routes = [
             { path: "", loadChildren: () => import('./feed/feed.module').then(m => m.FeedModule)   },
             { path: "feed",  loadChildren: () => import('./feed/feed.module').then(m => m.FeedModule) },
             { path: "chats",  loadChildren: () => import('./chats/chats.module').then(m => m.ChatsModule) },
-            { path: "expainded-chat",  loadChildren: () => import('./chats/expainded-chat/expainded-chat.module').then(m => m.ExpaindedChatModule) },
+            { path: "expainded-chat/:id",  loadChildren: () => import('./chats/expainded-chat/expainded-chat.module').then(m => m.ExpaindedChatModule) },
             { path: "calendar",  loadChildren: () => import('./calendar/calendar.module').then(m => m.CalendarModule) },
             { path: "matches-list", loadChildren: () => import('./calendar/matches-list/matches-list.module').then(m => m.MatchesListModule) },
             { path: "my-matches",  loadChildren: () => import('./my-matches/my-matches.module').then(m => m.MyMatchesModule) },
@@ -20,13 +20,6 @@ const routes: Routes = [
             { path: "settings", loadChildren: () => import('./settings/settings.module').then(m => m.SettingsModule) },
             { path: "players-circle", loadChildren: () => import('./players/players.module').then(m => m.PlayersModule) },
             { path: "profile", loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule) },
-            //   children: [
-            //     { path: "", component: CreatedMatchesComponent },
-            //     { path: "created-matches", component: CreatedMatchesComponent },
-            //     { path: "played-matches", component: PlayedMatchesComponent },
-            //     { path: "players-cercle", component: PlayersCercleComponent },
-            //   ]
-            // },
           ]
     }
 ];

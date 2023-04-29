@@ -18,7 +18,7 @@
             <input id="password" type="password" placeholder="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}">
             <p>Password should have at least 8 charcters, one cap and at least one special character</p>
         </div>
-        <button (click)="signup()">Sign Up</button>
+        <button (click)="signup()" type="button">Sign Up</button>
         <a [routerLink]="['/welcome', 'login']">Already Have An Account?!</a>
         <p>Or Sign Up with</p>
         <div class="icons">
