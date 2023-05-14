@@ -1,8 +1,8 @@
 .calendar{
-    width: 94%;
-    padding-top: 1rem;
+    width: 100%;
     display: grid;
     gap: 1rem;
+    padding: 1rem;
 }
 
 .calendar > header{

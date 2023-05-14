@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SuggestionsRoutingModule } from './suggestions-routing.module';
 import { SuggestionsComponent } from './suggestions.component';
 import { SuggestionComponent } from './suggestion/suggestion.component';
+import { MatchModule } from '../my-matches/match/match.module';
 
 
 
@@ -10,11 +11,13 @@ import { SuggestionComponent } from './suggestion/suggestion.component';
 @NgModule({
   declarations: [
     SuggestionsComponent,
-    SuggestionComponent
+    SuggestionComponent,
+    
   ],
   imports: [
     CommonModule,
-    SuggestionsRoutingModule
+    SuggestionsRoutingModule,
+    MatchModule
   ]
 })
 export class SuggestionsModule { }

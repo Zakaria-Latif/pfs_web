@@ -13,6 +13,6 @@ import { PlayerModule } from '../../players/player/player.module';
     CommonModule,
     PlayerModule
   ],
-  exports: [ MatchComponent ]
+  exports: [ MatchComponent ],
 })
 export class MatchModule { }

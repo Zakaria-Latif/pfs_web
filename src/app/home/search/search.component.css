@@ -1,9 +1,19 @@
 .search__page{
     display: grid;
     place-items: center;
+    padding: 1rem;
+    width: 100%;
+    max-width: 100%;
+    /* background-color: rgb(24, 23, 23);
+    color: white; */
 }
 
 .search__page img{
     width: 40%;
     height: auto;
+}
+
+.search__page > p{
+    color: gray;
+    margin-bottom: 2rem;
 }

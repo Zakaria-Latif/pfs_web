@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Match } from 'src/utils/types/Match';
 
 @Component({
   selector: 'app-new',
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class NewComponent {
 
+  match: Match = new Match();
+
+  onSubmit() {
+    // TODO: Handle form submission
+    console.log(this.match);
+  }
+
+  onFileSelected(event: any) {
+    // TODO: Handle file selection
+  }
 }

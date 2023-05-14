@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home-routing.module';
 import { FiltersComponent } from './search/filters/filters.component';
+import { CompletionsModule } from './search/completions/completions.module';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { FiltersComponent } from './search/filters/filters.component';
   ],
   imports: [
     CommonModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    CompletionsModule
   ]
 })
 export class HomeModule { }

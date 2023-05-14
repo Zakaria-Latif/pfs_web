@@ -24,6 +24,10 @@ const routes: Routes = [
                 path: "players-cercle", 
                 loadChildren: () => import('./players-cercle/players-cercle.module').then(m => m.PlayersCercleModule),
             },
+            { 
+                path: "**", 
+                loadChildren: () => import('./created-matches/created-matches.module').then(m => m.CreatedMatchesModule),   
+            },
           ]
     }
 ];

@@ -1,7 +1,7 @@
 <div *ngIf="loading">Loading...</div>
-    <div *ngIf="error">Error :(</div>
-    <div *ngIf="rates">
-      <div *ngFor="let rate of rates">
-        <p>{{ rate.currency }}: {{ rate.rate }}</p>
-      </div>
-    </div>
+<div *ngIf="error">Error :(</div>
+<div *ngIf="matches$ | async">
+  <div *ngFor="let match of matches$ | async">
+    <p>{{ match.name }}: {{ match.duration }}</p>
+  </div>
+</div>

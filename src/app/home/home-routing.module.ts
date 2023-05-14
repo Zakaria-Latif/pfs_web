@@ -20,6 +20,7 @@ const routes: Routes = [
             { path: "settings", loadChildren: () => import('./settings/settings.module').then(m => m.SettingsModule) },
             { path: "players-circle", loadChildren: () => import('./players/players.module').then(m => m.PlayersModule) },
             { path: "profile", loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule) },
+            { path: "**", loadChildren: () => import('./feed/feed.module').then(m => m.FeedModule)   },
           ]
     }
 ];

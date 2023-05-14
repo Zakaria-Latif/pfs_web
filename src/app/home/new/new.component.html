@@ -1,31 +1,38 @@
-<form action="" class="new">
+<form (ngSubmit)="onSubmit()" class="new slideInDown">
     <div class="group">
         <label for="name"></label>
-        <input type="text" placeholder="Match Name">
+        <input type="text" placeholder="Match Name" [(ngModel)]="match.name" name="name" required>
     </div>
     <div class="group">
         <label for="location"></label>
-        <input id="location" type="text" placeholder="Location">
+        <input id="location" type="text" placeholder="Location" [(ngModel)]="match.location" name="location" required>
     </div>
     <div class="group">
         <label for="time"></label>
-        <input id="time" type="date" placeholder="The day">
+        <input id="time" type="date" placeholder="The day" [(ngModel)]="match.day" name="day" required>
     </div>
     <div class="group">
         <label for="time"></label>
-        <input id="time" type="time" placeholder="The time">
+        <input id="time" type="time" placeholder="The time" [(ngModel)]="match.time" name="time" required>
     </div>
     <div class="group">
         <label for="playerNumber"></label>
-        <input id="playerNumber" type="number" placeholder="Number of players">
+        <input id="playerNumber" type="number" placeholder="Number of players" [(ngModel)]="match.players" name="players" required>
     </div>
     <div class="group">
         <label for="prize"></label>
-        <input type="text" placeholder="Prize">
+        <input type="text" placeholder="Prize" [(ngModel)]="match.prize" name="prize" required>
     </div>
     <div class="group">
         <label for="duration"></label>
-        <input id="duration" type="number" placeholder="Duration in hours">
+        <input id="duration" type="number" placeholder="Duration in hours" [(ngModel)]="match.duration" name="duration" required>
+    </div>
+    <div class="group">
+        <input id="file" type="file" placeholder="Match Poster" class="inputfile" (change)="onFileSelected($event)">
+        <label for="file">
+            <span class="material-symbols-outlined">image</span>
+            <p>Choose a match cover(poster)</p>
+        </label>
     </div>
     <button type="submit">Add</button>
 </form>

@@ -1,0 +1,33 @@
+
+.completions{
+    position: absolute;
+    inset: 6% 0 auto 0;
+    max-height: 90vh;
+    overflow-y: auto;
+    z-index: 100;
+    /* background-color: white; */
+    display: grid;
+}
+
+.suggestions > p{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.suggestions > p > .material-symbols-outlined{
+    cursor: pointer;
+    border-radius: 50%;
+    border: 0.1rem solid rgb(253, 246, 253);
+}
+
+.completion{
+    width: calc(100% - 1rem);
+    padding: 0 0.5rem;
+    /* color: rgba(237, 236, 240, 0.815); */
+    background-color: rgb(12, 12, 92);
+    font-size: medium;
+    font-weight: 200;
+    border-bottom: 1px solid rgb(58, 39, 143);
+    cursor: pointer;
+}

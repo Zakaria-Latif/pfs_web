@@ -22,6 +22,7 @@ header{
     background-color: white;
     padding-top: 1rem;
     padding-bottom: 1rem;
+    z-index: 2000;
 }
 
 header h1{
@@ -31,7 +32,7 @@ header h1{
 
 header nav{
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto auto auto auto auto;
     align-items: center;
     gap: 1rem;
     width: max-content;
@@ -39,10 +40,35 @@ header nav{
 
 nav > a{
     text-decoration: none;
-    font-weight: 900;
+    font-weight: 500;
     color: rgb(65, 65, 189);
-    font-size: large;
+    font-size: medium;
     letter-spacing: 1px;
+    font-family: Poppins;
+}
+
+a.current__tab{
+    border-bottom: 0.1rem solid rgb(209, 58, 209);
+}
+
+.join, .join__us{
+    background-color: rgb(245, 6, 53);
+    color: white !important;
+    border-radius: 1rem;
+    padding: 0.6rem 2rem;
+    font-weight: 900 !important;
+    font-size: larger;
+}
+
+.join__us{
+    width: 80%;
+    margin: auto;
+    padding: 0.4rem 1rem;
+    display: grid;
+    place-items: center;
+    margin-top: 2rem;
+    cursor: pointer;
+    border-radius: 2rem;
 }
 
 .sections img{
@@ -92,9 +118,14 @@ nav > a{
     text-decoration: none;
     text-align: center;
     font-size: 1.1rem;
-    font-weight: bold;
+    font-weight:400;
     color: white;
     margin: auto;
+
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    outline: none;
+    border-radius: 0.6rem;
 }
 
 footer{
@@ -122,4 +153,93 @@ footer{
 
   }
 
+  button i{
+    display: grid;
+    place-items: center;
+  }
+  button > i > img{
+    width: 2rem;
+    height: auto;
+  }
 
+  h1 > img{
+    width: 2rem;
+    height: auto;
+  }
+
+.welcome{
+    position: relative;
+}
+
+.welcome > header .burger{
+    position: fixed;
+    inset: 0 0 0 0;
+    background-color: rgb(250, 250, 252);
+}
+
+header > span{
+    cursor: pointer;
+    width: 3rem;
+    height: auto;
+    color: rgb(16, 16, 102);
+    font-weight: 500;
+    font-size: 2rem;
+}
+
+.closer{
+    display: flex;
+    flex-direction: row-reverse;
+    color: violet;
+}
+
+.closer > span{
+    border: 0.1rem solid violet;
+    margin: 0.5rem 0.5rem auto auto;
+    border-radius: 50%;
+    padding: 0.1rem;
+    cursor: pointer;
+    background-color: rgb(15, 15, 83);
+}
+
+.links{
+    display: grid;
+    width: max-content;
+    margin: auto;
+    color: rgb(15, 15, 83);
+    gap: 1rem;
+    font-size: large;
+    width: 80%;
+    margin: auto;
+}
+
+.links > .link{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+    cursor: pointer;
+    border-radius: 1rem;
+    padding: 0.1rem 0.5rem;
+}
+
+.link:hover{
+    border: 1px solid violet;
+    border-radius: 2rem;
+    width: 100%;
+}
+
+.link > p{
+    color: rgb(22, 22, 94);
+    font-weight: 600;
+}
+
+.link > span{
+    color: rgb(22, 22, 94);
+    font-weight: 800;
+    font-size: 1.8rem;
+}
+.burger__link__on{
+    border: 0.1rem solid rgb(182, 182, 211);
+    display: flex;
+    align-items: center;
+    
+}
