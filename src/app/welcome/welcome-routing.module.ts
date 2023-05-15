@@ -10,6 +10,10 @@ const routes: Routes = [
                 loadChildren: () => import('./default/default.module').then(m => m.DefaultModule)
             }, 
             {
+                path: 'home', 
+                loadChildren: () => import('./default/default.module').then(m => m.DefaultModule)
+            }, 
+            {
                 path: 'about', 
                 loadChildren: () => import('./about/about.module').then(m => m.AboutModule)
             },
@@ -25,8 +29,16 @@ const routes: Routes = [
                 path: 'signup',
                 loadChildren: () => import('./signup/signup.module').then(m => m.SignupModule)
             }, 
+            {
+                path: 'services',
+                loadChildren: () => import('./services/services.module').then(m => m.ServicesModule)
+            }, 
+            {
+                path: "**", 
+                loadChildren: ()=>import("./default/default.module").then(m=>m.DefaultModule)
+            }
         ] 
-    }
+    },
 ];
 
 @NgModule({

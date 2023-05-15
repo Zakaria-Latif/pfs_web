@@ -1,6 +1,7 @@
 .profile{
-    width: 90%;
+    width: 100%;
     max-width: 100%;
+    padding: 1rem;
 }
 
 .profile > header{
@@ -124,3 +125,8 @@ header > .joining__date{
 .intro{
     margin: 1rem auto;
 }
+
+.browser__center{
+    overflow-x: hidden;
+}
+

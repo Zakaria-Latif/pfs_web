@@ -1,3 +1,9 @@
 .contact{
-    min-height: 70vh;
+    min-height: 40vh;
+}
+
+form > button{
+    width: 100%;
+    background-color: rgb(26, 26, 114);
+    color: aqua;
 }

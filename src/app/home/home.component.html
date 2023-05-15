@@ -1,20 +1,28 @@
-<section class="home">
+<section class="home fadeIn">
     <header>
-        <form class="search" (submit)="search($event)">
-            <input type="text" placeholder="Search matches, players..." [value]="searchTerm" (input)="onSearchInput($event)">
-            <button type="button" (click)="toggleFilter()">
+        <div class="ava__username">
+            <div class="ava__wrapper"><img src="../../assets/sports/soccer.svg" alt="Avatar"></div>
+            <p class="username">El Ouali</p>
+        </div>
+        <form class="search shadow shadow-slate-300 flex-1 py-6" (submit)="search($event)">
+            <input class="px-2" type="text" placeholder="Search matches, players..." [value]="searchTerm" (input)="onSearchInput($event)">
+            <button type="button" (click)="toggleFilter()" class="m-auto grid place-items-center">
                 <span *ngIf="isFilterClosed" class="material-symbols-outlined">tune</span>
                 <span *ngIf="!isFilterClosed" class="material-symbols-outlined">close</span>
             </button>
-            <button type="submit">
+            <button type="submit" class="m-auto grid place-items-center">
                 <span class="material-symbols-outlined">search</span>
             </button>
             <app-filters *ngIf="!isFilterClosed"></app-filters>
+            <div *ngIf="isTypingAtSearch" #myDiv>
+                <app-completions [currentSuggestion]="searchTerm" (dispatchSuggestion)="setSearchTerm($event)" [suggestions]="completions"></app-completions>
+            </div>
         </form>
         <div *ngIf="isPhoneviewed" class="burger">
             <span *ngIf="!isBurgerOpen" class="material-symbols-outlined" (click)="toggleBurger()">menu</span>
             <span *ngIf="isBurgerOpen" class="material-symbols-outlined" (click)="toggleBurger()">close</span>
-            <div *ngIf="isBurgerOpen" class="links">
+            <div *ngIf="isBurgerOpen" class="links slideInRight">
+                <span class="material-symbols-outlined" (click)="toggleBurger()">close</span>
                 <div class="links__center">
                     <a [routerLink]="['/home', 'my-matches']" (click)="toggleBurger()" routerLinkActive="active-link">
                         <span class="material-symbols-outlined">sports_soccer</span>
@@ -41,6 +49,7 @@
                         <span class="text">Theme</span>
                     </a>
                 </div>
+                <p>Get The App Or View Our Pages</p>
                 <div class="links__top__right__mini">
                     <img src="../../assets/../assets/socials/google-play-store.svg" alt="Play Store">
                     <img src="../../assets/../assets/socials/app-store.svg" alt="App Store">
@@ -99,7 +108,7 @@
             </div>
             
         </div>
-        <div class="main__browser"><router-outlet></router-outlet></div>
+        <div class="main__browser" ><router-outlet></router-outlet></div>
         <div class="side__bar" *ngIf="!isPhoneviewed">
             <div class="links__top__right">
                 <img src="../../assets/../assets/socials/google-play-store.svg" alt="Play Store">
@@ -130,3 +139,4 @@
         </a>
     </div>
 </section>
+

@@ -28,6 +28,7 @@
 .fields > .field {
     width: 80%;
     margin: auto;
+    margin-bottom: 1rem;
 }
 
 .fields > .field > input{
@@ -35,7 +36,7 @@
     height: 2rem;
     outline: none;
     border: 0.1rem solid rgb(212, 187, 212);
-    padding: 0.2rem 0.4rem;
+    padding: 1.3rem 0.4rem;
     font-size: 0.9rem;
 }
 .fields > .field > input:focus:invalid {

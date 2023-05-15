@@ -3,15 +3,19 @@ import { CommonModule } from '@angular/common';
 
 import { SearchComponent } from './search.component';
 import { SearchRoutingModule } from './search-routing.module';
+import { PlayerModule } from '../players/player/player.module';
+import { MatchModule } from '../my-matches/match/match.module';
 
 
 @NgModule({
   declarations: [
-    SearchComponent
+    SearchComponent,
   ],
   imports: [
     CommonModule,
-    SearchRoutingModule
+    SearchRoutingModule,
+    PlayerModule,
+    MatchModule
   ]
 })
 export class SearchModule { }

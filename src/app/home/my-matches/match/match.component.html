@@ -14,7 +14,7 @@
             <button (click)="toggleViewMember()">
                 {{isViewMembersOn ? "Hide ": "View "}}Members
             </button>
-            <div class="view__members" *ngIf="isViewMembersOn">
+            <div class="view__members slideInRight" *ngIf="isViewMembersOn">
                 <span class="material-symbols-outlined" (click)="toggleViewMember()">
                     close
                 </span>
@@ -36,7 +36,7 @@
                 <span class="material-symbols-outlined">
                     schedule
                 </span>
-                <p>{{time}}</p>
+                <p>{{time | date: 'medium'}}</p>
             </div>
             <div class="coord">
                 <span class="material-symbols-outlined">
@@ -44,6 +44,9 @@
                 </span>
                 <p>{{location}}</p>
             </div>
+        </div>
+        <div class="match__poster">
+            <img src="../../../../assets/fake/match3.jpg" alt="Match Poster" loading="lazy">
         </div>
         <div class="members">
            <div class="avas">
@@ -58,9 +61,9 @@
             <div class="img__wrapper img__border"><img [src]="creatorImage" [alt]="creatorName"></div> 
         </section>
     </div>
-    <div class="buttons buttons__links">
+    <div class="buttons buttons__links" *ngIf="!isSuggested">
         <button *ngIf="isOwner" (click)="deleteMatch()">Delete</button>
-        <button *ngIf="isOwner" (click)="editMatch()">Edit</button>
+        <button *ngIf="isOwner" (click)="editMatch(id)">Edit</button>
         <button *ngIf="isMember" (click)="openChat()">Chat</button>
         <button *ngIf="isAddedToCalendar && isMember">Reschedule</button>
     </div>

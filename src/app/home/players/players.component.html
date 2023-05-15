@@ -1,7 +1,22 @@
-<div class="players">
-    <app-player></app-player>
-    <app-player></app-player>
-    <app-player></app-player>
-    <app-player></app-player>
-    <app-player></app-player>
+<div *ngIf="playersService.getLoading()" class="cssload-container grid place-items-center">
+    <span class="loader"></span>
 </div>
+<div class="loaders" *ngIf="playersService.getLoading()">
+    <span class="background__loader"></span>
+    <span class="background__loader"></span>
+    <span class="background__loader"></span>
+</div>
+
+<div class="players slideInDown" *ngFor="let player of playersService.getPlayers() | async; let i=index;">
+    <app-player [username]="player.username" [location]="player.location" 
+        [position]="player.playerStatistics.position"
+        [description]="player.description" [matchesNumber]="player.playerStatistics.matchesNumber"
+        [createdAt]="player.createdAt" [rate]="player.playerStatistics.rate" [id]="player.id"    
+    ></app-player>
+</div>
+
+<!-- This is for infinite scrolling -->
+<div class="loaders">
+    <span class="background__loader"></span>
+</div>
+

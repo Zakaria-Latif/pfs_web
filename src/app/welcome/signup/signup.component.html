@@ -1,31 +1,37 @@
-<section class="signup">
+<section class="signup slideInUp">
     <div class="signup__pic">
-        <img src="../../../assets/auth/signup.svg" alt="Sign Up">
+      <img src="../../../assets/auth/signup.svg" alt="Sign Up">
     </div>
-    <form class="fields">
-        <div class="field">
-            <label for="username"></label>
-            <input type="text" placeholder="Username" pattern="[a-zA-Z0-9_-]{3,20}">
-            <p>Username should have at least 3 characters</p>
-        </div>
-        <div class="field">
-            <label for="email"></label>
-            <input id="email" type="text" placeholder="Email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
-            <p>This email is not valid</p>
-        </div>
-        <div class="field">
-            <label for="password"></label>
-            <input id="password" type="password" placeholder="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}">
-            <p>Password should have at least 8 charcters, one cap and at least one special character</p>
-        </div>
-        <button (click)="signup()" type="button">Sign Up</button>
-        <a [routerLink]="['/welcome', 'login']">Already Have An Account?!</a>
-        <p>Or Sign Up with</p>
-        <div class="icons">
-            <img src="../../../assets/socials/google.svg" alt="Google">
-            <img src="../../../assets/socials/meta.svg" alt="Meta">
-            <img src="../../../assets/socials/twitter.svg" alt="Twitter">
-            <img src="../../../assets/socials/linkedin.svg" alt="Linkedin">
-        </div>
+    <form class="fields" #signupForm="ngForm" (ngSubmit)="onSubmit(signupForm)">
+      <div class="field">
+        <label for="username"></label>
+        <input type="text" placeholder="Username" pattern="[a-zA-Z0-9_-]{3,20}" name="username" [(ngModel)]="user.username" required>
+        <p *ngIf="signupForm.controls['username'].invalid && (signupForm.controls['username'].dirty || signupForm.controls['username'].touched)">
+          Username should have at least 3 characters
+        </p>
+      </div>
+      <div class="field">
+        <label for="email"></label>
+        <input id="email" type="text" placeholder="Email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" name="email" [(ngModel)]="user.email" required>
+        <p *ngIf="signupForm.controls['email'].invalid && (signupForm.controls['email'].dirty || signupForm.controls['email'].touched)">
+          This email is not valid
+        </p>
+      </div>
+      <div class="field">
+        <label for="password"></label>
+        <input id="password" type="password" placeholder="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}" name="password" [(ngModel)]="user.password" required>
+        <p *ngIf="signupForm.controls['password'].invalid && (signupForm.controls['password'].dirty || signupForm.controls['password'].touched)">
+          Password should have at least 8 characters, one capital letter and at least one special character
+        </p>
+      </div>
+      <button type="submit">Sign Up</button>
+      <a [routerLink]="['/welcome', 'login']">Already Have An Account?!</a>
+      <p>Or Sign Up with</p>
+      <div class="icons">
+        <img src="../../../assets/socials/google.svg" alt="Google">
+        <img src="../../../assets/socials/meta.svg" alt="Meta">
+        <img src="../../../assets/socials/twitter.svg" alt="Twitter">
+        <img src="../../../assets/socials/linkedin.svg" alt="Linkedin">
+      </div>
     </form>
-</section>
+  </section>

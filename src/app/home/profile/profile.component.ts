@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent {
+  isOnEdit=false;
+  
+  editMatch(id: number){
+    this.isOnEdit=!this.isOnEdit;
+    console.log(`Editing match with id # ${id}`);
+  }
 
+  closeEdit(){
+    this.isOnEdit=false;
+  }
+  
 }

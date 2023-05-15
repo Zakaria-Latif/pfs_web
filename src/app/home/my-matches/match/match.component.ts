@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { DatePipe } from '@angular/common';
+import { Component, ElementRef, EventEmitter, HostListener, Input, Output, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,13 +8,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./match.component.css']
 })
 export class MatchComponent {
+  
   // items: Array<number>=Array.from({length: 10}, (value, index) => index + 1);
   @Input() id=1;
   @Input() isAddedToCalendar: boolean=false;
   @Input() name: string="GI2 Kesh";
   @Input() matchImage="../../../../assets/sports/football.svg";
   @Input() category="Football";
-  @Input() time="14 July, 5PM";
+  @Input() time="2023-03-13T00:58:30.000Z";
+  @Input() duration=2;
   @Input() location="Marrakesh";
   @Input() currentCapacity=5;
   @Input() maxCapacity=10;
@@ -23,14 +26,18 @@ export class MatchComponent {
   @Input() isMember=true;
   @Input() membersImages: Array<string>=["https://i.pravatar.cc/100", "https://i.pravatar.cc/300", "https://i.pravatar.cc/201", "https://i.pravatar.cc/111", "https://i.pravatar.cc/291"];
   @Input() chatId=1;
+  @Input() isSuggested=false;
 
+  @Output() dipatchEditMatch: EventEmitter<number> = new EventEmitter<number>();
   isViewMembersOn=false;
+
 
   toggleViewMember(){
     this.isViewMembersOn=!this.isViewMembersOn;
   }
 
-  constructor(private readonly router: Router){}
+  constructor(private readonly router: Router){
+  }
 
   openChat(){
     //just for now
@@ -51,7 +58,8 @@ export class MatchComponent {
     console.log(`Deleting match with id # ${this.id}`)
   }
 
-  editMatch(){
-    console.log(`Editing match with id # ${this.id}`);
+  editMatch(id: number){
+    this.dipatchEditMatch.emit(id);
   }
+
 }

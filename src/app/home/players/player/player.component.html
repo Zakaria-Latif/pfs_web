@@ -3,20 +3,20 @@
         <div class="img__wrapper">
             <img src="https://i.pravatar.cc/111" alt="Player Avatar" loading="lazy">
         </div>
-        <h4 class="username">John Smith</h4>
+        <h4 class="username">{{username}}</h4>
         <button>Add To Match</button>
     </header>
     
     <div class="main">
-        <p class="rate">8.9 Rate</p>
-        <p class="matches__number">73 Matches</p>
-        <p class="position">Goalkeeper</p>
-        <p class="location">Marrakesh</p>
+        <p class="rate">{{rate}} Rate</p>
+        <p class="matches__number">{{matchesNumber}} Matches</p>
+        <p class="position">{{position}}</p>
+        <p class="location">{{location}}</p>
     </div>
 
     <p class="bio">
-        John Smith, professional football player ⚽️ | New York Jets 🏆 | Goalkeeper: #1 | American 🇺🇸 | Follow my journey on and off the pitch 🙌🏼
+        {{description}}
     </p>
 
-    <p class="joined__on">Joined On The 5th December, 2020</p>
+    <p class="joined__on">Joined On {{createdAt | date:"mediumDate"}}</p>
 </section>
