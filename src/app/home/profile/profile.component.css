@@ -1,6 +1,7 @@
 .profile{
-    width: 94%;
+    width: 100%;
     max-width: 100%;
+    padding: 1rem;
 }
 
 .profile > header{
@@ -14,11 +15,21 @@
     color: rgb(255, 255, 255);
     font-weight: 200;
     margin: auto;
+    width: 100%;
+    max-width: 100%;
+
 }
 
 @media screen and (max-width: 800px) {
     .profile > header{
-        padding-left: 4rem;
+        margin: auto; 
+        width: 100%;
+
+    }
+
+    header > p{
+        position: relative;
+        left: 2rem;
     }
 }
 
@@ -59,6 +70,7 @@ header > .img__wrapper{
 
 .tabs a{
     text-decoration: none;
+    text-align: center;
     border-radius: 1rem;
     padding: 0.2rem 1rem;
     background-color: rgb(243, 243, 248);
@@ -113,3 +125,8 @@ header > .joining__date{
 .intro{
     margin: 1rem auto;
 }
+
+.browser__center{
+    overflow-x: hidden;
+}
+

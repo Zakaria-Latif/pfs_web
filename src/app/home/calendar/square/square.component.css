@@ -1,0 +1,47 @@
+.square{
+    text-decoration: none;
+    display: flex;
+    justify-content: space-around;
+    width: max-content;
+    gap: 0.5rem;
+    padding: 0.3rem;
+    cursor: pointer;
+    box-shadow: 4px 2px 21px -11px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 4px 2px 21px -11px rgba(0,0,0,0.75);
+    -moz-box-shadow: 4px 2px 21px -11px rgba(0,0,0,0.75);
+    width: 90%;
+    height: 100%;
+    border-radius: 1rem;
+}
+.square > .day__num{
+    font-weight: 400;
+    /* opacity: 0.5; */
+}
+
+.day__num::after{
+    content: attr(matchesNumber);
+    font-size: small;
+    position: relative;
+    bottom: 1rem;
+    background-color: rgb(15, 15, 110);
+    border-radius: 50%;
+    color: aliceblue;
+    padding: 0.1rem 0.5rem;
+}
+
+@media screen and (max-width: 800px) {
+    .square{
+        box-shadow: none;
+        width: 60%;
+    }
+
+    .day__num::after{
+        content: attr(matchesNumber);
+        font-size: small;
+        background-color: rgb(205, 205, 235);
+        border-radius: 3rem 50% 50% 50%;
+        color: rgb(35, 17, 87);
+        margin-left: 0.4rem;
+        margin-top: 1rem;
+    }
+}

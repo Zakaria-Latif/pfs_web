@@ -1,4 +1,31 @@
-<div class="search__page">
-    <p>Whoops Not Hooked Up To The Api Yet</p>
+<div *ngIf="searchService.getLoading()" class="cssload-container grid place-items-center">
+    <span class="loader"></span>
+</div>
+<div class="loaders" *ngIf="searchService.getLoading()">
+    <span class="background__loader"></span>
+    <span class="background__loader"></span>
+    <span class="background__loader"></span>
+</div>
+
+<!-- Matches -->
+<!-- <div class="search__page slideInDown" *ngFor="let match of searchService.getSearchMatches() | async; let i=index;">
+    <app-match [name]="match.name" [location]="match.location"
+        [duration]="match.duration" [time]="match.time"
+    ></app-match>
+</div> -->
+
+<!-- Players -->
+<div class="search__page slideInDown" *ngFor="let player of searchService.getSearchPlayers() | async; let i=index;">
+    <app-player [username]="player.username" [location]="player.location" 
+        [position]="player.playerStatistics.position"
+        [description]="player.description" [matchesNumber]="player.playerStatistics.matchesNumber"
+        [createdAt]="player.createdAt" [rate]="player.playerStatistics.rate" [id]="player.id"    
+    ></app-player>
+</div>
+
+<div *ngIf="(searchService.getSearchPlayers() | async)?.length===0 && 
+    (searchService.getSearchMatches() | async)?.length===0 && !searchService.getLoading()"
+    class="search__page slideInDown">
+    <p>We Couldn't Find Any Match Buddy!</p>
     <img src="../../../assets/error/not_found.svg" alt="Not Found">
 </div>

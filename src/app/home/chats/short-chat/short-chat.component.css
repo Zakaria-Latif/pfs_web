@@ -16,8 +16,8 @@
 .short__chat > .icon{
     display: grid;
     place-items: center;
-    width: 4.5rem;
-    height: 4.5rem;
+    width: 4rem;
+    height: 4rem;
     border-radius: 50%;
     grid-area: 1/1/3/2;
     justify-self: start;
@@ -36,6 +36,7 @@
     grid-area: 1/2/2/3;
     justify-self: start;
     color: rgb(12, 12, 78);
+    align-self: self-end;
 }
 
 .short__chat > .material-symbols-outlined{
@@ -48,6 +49,7 @@
     justify-self: start;
     opacity: 0.5;
     font-size: medium;
+    align-self: flex-start;
 }
 
 .short__chat > .members{
@@ -59,5 +61,5 @@
 .short__chat > .date{
     grid-area: 3/3/4/4;
     font-size: small;
-    font-weight: 800;
+    font-weight: 400;
 }

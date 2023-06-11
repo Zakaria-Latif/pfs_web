@@ -1,0 +1,82 @@
+.calendar{
+    width: 100%;
+    display: grid;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.calendar > header{
+    width: 100%;
+    display: grid;
+    place-items: center;
+}
+
+header > .date{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 1rem;
+}
+
+.date > select{
+    padding: 0.3rem 0.1rem;
+    border-radius: 1rem;
+    border: 0.1rem solid blueviolet;
+    outline: none;
+    cursor: pointer;
+}
+
+select:checked{
+    outline: none;
+    border: 0.1rem solid rgb(93, 27, 155);
+}
+
+select > option{
+    padding: 1rem;
+    font-weight: 600;
+    font-family: Poppins;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+.squares{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    width: 100%;
+    align-items: center;
+    gap: 1rem 2px;
+}
+
+.squares > .day{
+    font-weight: 600;
+    color: rgb(102, 15, 184);
+    border-bottom: 1px solid rgb(234, 220, 247);
+}
+
+input[type="date"] {
+    appearance: none;
+    -webkit-appearance: none;
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    line-height: 1.5;
+    background-color: white;
+    color: #555;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    width: 2rem;
+    height: 2rem;
+    margin-right: 0.5rem;
+    background-color: transparent;
+    border: none;
+}
+  
+input[type="date"]::-webkit-inner-spin-button {
+    display: none;
+}

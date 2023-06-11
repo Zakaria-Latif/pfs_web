@@ -28,6 +28,7 @@ header > button{
     border: 0.1rem solid rgb(245, 207, 245);
     border-radius: 1rem;
     padding: 0.2rem 0.5rem;
+    margin: auto;
 }
 
 .player > .main > p{
@@ -35,6 +36,7 @@ header > button{
     color: rgb(207, 75, 207);
     margin-top: 0rem;
     margin-bottom: 0rem;
+    text-align: center;
 }
 
 header > .img__wrapper{
@@ -55,4 +57,9 @@ header > .img__wrapper{
 .player .joined__on{
     font-size: small;
     font-weight: 800;
+}
+
+.bio{
+    font-weight: 300;
+    font-family: Poppins;
 }

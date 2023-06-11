@@ -1,3 +1,30 @@
-<div class="calendar">
-    <h3>Calendar</h3>
-</div>
+<section class="calendar slideInDown">
+    <header>
+        <div class="date">
+            <select [disabled]="true" name="day" [(ngModel)]="selectedDate.day">
+                <option *ngFor="let day of days" [value]="day">{{ day }}</option>
+            </select>
+                
+            <select name="month" [(ngModel)]="selectedDate.month" (change)="updateDays()">
+                <option *ngFor="let month of months" [value]="month">{{ month }}</option>
+            </select>
+            
+            <select [disabled]="true" name="year" [(ngModel)]="selectedDate.year">
+                <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+            </select>
+            
+        </div>
+    </header>
+    <div class="squares">
+        <span class="day">Sun</span>
+        <span class="day">Mon</span>
+        <span class="day">Tue</span>
+        <span class="day">Wed</span>
+        <span class="day">Thu</span>
+        <span class="day">Fri</span>
+        <span class="day">Sat</span>
+        <div class="" *ngFor="let offDay of offDays" ngClass="off__day"></div>
+        <app-square *ngFor="let dayNum of days" [dayNumber]="dayNum" [matchesNumber]="dayNum%2"></app-square>
+    </div>
+    <app-matches-timeline></app-matches-timeline>
+</section>

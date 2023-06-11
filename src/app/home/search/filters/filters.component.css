@@ -69,6 +69,7 @@
     padding: 0.5rem;
     font-weight: 600;
     cursor: pointer;
+    border-radius: 1rem;
 }
 
 .buttons > .on{
@@ -166,6 +167,7 @@
     cursor: pointer;
     margin: 1rem auto;
     width: 100%;
+    border-radius: 1rem;
 }
 
 .date__group input{

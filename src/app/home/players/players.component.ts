@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PlayersService } from 'src/app/services/players/players.service';
 
 @Component({
   selector: 'app-players',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./players.component.css']
 })
 export class PlayersComponent {
+  constructor(public playersService: PlayersService) { }
 
+  ngOnInit(): void {
+    this.playersService.fetchPlayers();
+  }
 }

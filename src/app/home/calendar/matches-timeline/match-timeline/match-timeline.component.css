@@ -1,0 +1,43 @@
+.match__timeline{
+    position: relative;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+    border-left: 0.1rem solid rgb(239, 239, 248);
+    padding-left: 1rem;
+}
+
+.match__timeline > .dot{
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: rgb(239, 239, 248);
+    inset: -0.5rem auto auto -0.5rem;
+}
+
+.match__timeline > .date{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    height: max-content;
+}
+
+
+.date > span{
+    color: rgb(192, 140, 240);
+}
+
+
+.match__timeline > .match{
+    width: 90%;
+    justify-self: center;
+}
+
+@media screen and (max-width: 800px) {
+    .match__timeline{
+        grid-template-columns: 1fr;
+    }
+}

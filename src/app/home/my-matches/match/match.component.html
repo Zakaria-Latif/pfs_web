@@ -5,50 +5,66 @@
                 <img src="../../../../assets/sports/football.svg" alt="Avatar" loading="lazy">
             </div>
             <h4 class="name">GI2 Kesh</h4>
-            <button>
+            <button *ngIf="!isAddedToCalendar" (click)="addToCalendar()">
                 + To Calendar
             </button>
-            <button>
-                View Members
+            <button *ngIf="isAddedToCalendar" (click)="removeFromCalendar()">
+                - From Calendar
             </button>
+            <button (click)="toggleViewMember()">
+                {{isViewMembersOn ? "Hide ": "View "}}Members
+            </button>
+            <div class="view__members slideInRight" *ngIf="isViewMembersOn">
+                <span class="material-symbols-outlined" (click)="toggleViewMember()">
+                    close
+                </span>
+                <app-player></app-player>
+                <app-player></app-player>
+                <app-player></app-player>
+                <app-player></app-player>
+                <app-player></app-player>
+            </div>
         </div>
         <div class="coords">
             <div class="coord">
                 <span class="material-symbols-outlined">
                     category
                 </span>
-                <p>Football</p>
+                <p>{{category}}</p>
             </div>
             <div class="coord">
                 <span class="material-symbols-outlined">
                     schedule
                 </span>
-                <p>14 July, 5PM</p>
+                <p>{{time | date: 'medium'}}</p>
             </div>
             <div class="coord">
                 <span class="material-symbols-outlined">
                     location_on
                 </span>
-                <p>Place X</p>
+                <p>{{location}}</p>
             </div>
+        </div>
+        <div class="match__poster">
+            <img src="../../../../assets/fake/match3.jpg" alt="Match Poster" loading="lazy">
         </div>
         <div class="members">
            <div class="avas">
-                <div *ngFor="let i of items;" class="images img__wrapper img__border member__ava" 
+                <div *ngFor="let url of membersImages; let i = index" class="images img__wrapper img__border member__ava" 
                     [ngStyle]="{'transform': 'translateX(' + (i*80 - 80) + '%)', 'z-index': i}">
-                    <img [src]="'https://i.pravatar.cc/'+i" alt="" loading="lazy">
+                    <img [src]="url" alt="" loading="lazy">
                 </div>
            </div>
-            <p>7/8 Members</p>
+            <p>{{currentCapacity}}/{{maxCapacity}} Members</p>
         </div>
-        <section >Created by El Ouali 
-            <div class="img__wrapper img__border"><img src="https://i.pravatar.cc/201" alt="Avatar"></div> 
+        <section >Created by {{creatorName}}
+            <div class="img__wrapper img__border"><img [src]="creatorImage" [alt]="creatorName"></div> 
         </section>
     </div>
-    <div class="buttons buttons__links">
-        <button>Delete</button>
-        <button>Edit</button>
-        <button>Chat</button>
-        <button>Exit</button>
+    <div class="buttons buttons__links" *ngIf="!isSuggested">
+        <button *ngIf="isOwner" (click)="deleteMatch()">Delete</button>
+        <button *ngIf="isOwner" (click)="editMatch(id)">Edit</button>
+        <button *ngIf="isMember" (click)="openChat()">Chat</button>
+        <button *ngIf="isAddedToCalendar && isMember">Reschedule</button>
     </div>
 </div>

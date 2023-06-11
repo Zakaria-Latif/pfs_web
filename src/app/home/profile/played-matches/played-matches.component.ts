@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./played-matches.component.css']
 })
 export class PlayedMatchesComponent {
+  isOnEdit=false;
+  
+  editMatch(id: number){
+    this.isOnEdit=!this.isOnEdit;
+    console.log(`Editing match with id # ${id}`);
+  }
 
+  closeEdit(){
+    this.isOnEdit=false;
+  }
 }
