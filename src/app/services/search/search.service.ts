@@ -3,6 +3,8 @@ import { Observable, of, map } from 'rxjs';
 import { Match } from 'src/utils/types/Match';
 import { Apollo, gql  } from 'apollo-angular';
 import { Player } from 'src/utils/types/Player';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { LocalStorageService } from '../localStorage/local-storage.service';
 
 interface Config {
   matches: {
@@ -42,12 +44,13 @@ export class SearchService {
     }
   };
  
-  constructor(private apollo: Apollo) {}
+  constructor(private apollo: Apollo, private http: HttpClient, private localStorageService: LocalStorageService) {}
  
   fetchSearchMatches(searchTerm: string): Observable<Array<Match>> {
-    const {minDuration, maxDuration, dateFrom: dateFromT, dateTo: dateToT}=this.config.matches;
-    const dateFrom=new Date(dateFromT).toISOString;
-    const dateTo=new Date(dateToT).toISOString;
+    const {minDuration, maxDuration, dateFrom, dateTo}=this.config.matches;
+    // const dateFrom = new Date(dateFromT).toISOString();
+    // const dateTo = new Date(dateToT).toISOString();
+
     console.log("Got here");
 
     const query = gql`
@@ -64,10 +67,11 @@ export class SearchService {
           location
           time
           duration
+          creatorId
           creator {
             username
           }
-          players {
+          playersList: players {
             player {
               username
             }

@@ -1,6 +1,8 @@
 import { DatePipe } from '@angular/common';
 import { Component, ElementRef, EventEmitter, HostListener, Input, Output, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { LocalStorageService } from 'src/app/services/localStorage/local-storage.service';
+import { MatchesService } from 'src/app/services/matches/matches.service';
 
 @Component({
   selector: 'app-match',
@@ -11,6 +13,7 @@ export class MatchComponent {
   
   // items: Array<number>=Array.from({length: 10}, (value, index) => index + 1);
   @Input() id=1;
+  @Input() creatorId=-1;
   @Input() isAddedToCalendar: boolean=false;
   @Input() name: string="GI2 Kesh";
   @Input() matchImage="../../../../assets/sports/football.svg";
@@ -22,21 +25,45 @@ export class MatchComponent {
   @Input() maxCapacity=10;
   @Input() creatorName="El Ouali";
   @Input() creatorImage="https://i.pravatar.cc/201";
-  @Input() isOwner=true;
-  @Input() isMember=true;
+  @Input() isMember=false;
   @Input() membersImages: Array<string>=["https://i.pravatar.cc/100", "https://i.pravatar.cc/300", "https://i.pravatar.cc/201", "https://i.pravatar.cc/111", "https://i.pravatar.cc/291"];
   @Input() chatId=1;
   @Input() isSuggested=false;
+  @Input() hasSentInvitation=false;
 
   @Output() dipatchEditMatch: EventEmitter<number> = new EventEmitter<number>();
-  isViewMembersOn=false;
+  @Output() dispatchViewMembers: EventEmitter<number> = new EventEmitter<number>();
 
-
-  toggleViewMember(){
-    this.isViewMembersOn=!this.isViewMembersOn;
+  constructor(private readonly router: Router, public localStorageService: LocalStorageService,
+    public matchesService: MatchesService
+    ){
   }
 
-  constructor(private readonly router: Router){
+  modal={
+    isModalOn: false,
+    title: "",
+    info: "",
+    buttonText: "Close",
+    buttonActionNegative: async()=>{},
+    buttonActionPositive: async()=>{},
+    matchId: 1
+  }
+
+  deleteMatch(matchId: number){
+    this.modal.isModalOn=true;
+    this.modal.title="Be Careful!",
+    this.modal.info="Are you sure you want to delete this match?",
+    this.modal.buttonActionNegative=async()=>{
+      this.modal.isModalOn=false;
+    }
+    this.modal.buttonActionPositive=async()=>{
+      this.modal.isModalOn=false;
+      console.log("Deleting Match");
+    }
+  }
+
+  viewMembers(matchId: number){
+    this.dispatchViewMembers.emit(matchId);
   }
 
   openChat(){
@@ -52,10 +79,6 @@ export class MatchComponent {
   removeFromCalendar(){
     //do the logic to remove the match from the calendar
     this.router.navigate(["/home", "calendar"]);
-  }
-
-  deleteMatch(){
-    console.log(`Deleting match with id # ${this.id}`)
   }
 
   editMatch(id: number){

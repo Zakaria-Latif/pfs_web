@@ -15,4 +15,5 @@ export class PlayerComponent {
   @Input() description: string="";
   @Input() createdAt: string="2023-01-05T07:54:03.000Z";
   @Input() playerImage?: string;
+  @Input() canAddToMatch?: false;
 }

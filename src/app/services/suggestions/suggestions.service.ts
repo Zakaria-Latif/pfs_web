@@ -21,6 +21,7 @@ export class SuggestionsService {
           query matches {
             matches(paginationInput:{skip: 1, take:16}){
               id,
+              creatorId,
               name,
               location,
               duration,

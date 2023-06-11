@@ -2,6 +2,8 @@ import { Router } from '@angular/router';
 // import { MediaService } from 'src/services/media.service';
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
+import { MatchesService } from '../services/matches/matches.service';
+import { HomeService } from '../services/home/home.service';
 
 @Component({
   selector: 'app-home',
@@ -31,6 +33,8 @@ export class HomeComponent {
 
 
   constructor(private router: Router, public responsive: BreakpointObserver, 
+    public matchesService: MatchesService,
+    public homeService: HomeService,
     private elRef: ElementRef){}
 
   onClick(event: MouseEvent) {
@@ -42,19 +46,19 @@ export class HomeComponent {
 
   ngOnInit() {
     document.addEventListener('click', this.onClick.bind(this));
+    this.homeService.fetchPlayer();
 
-
-  this.responsive.observe("(max-width: 800px)")
-  .subscribe(result => {
-    this.isPhoneviewed = false;
-  if (result.matches) {
-    this.isPhoneviewed = true;
-  } {
-    console.log(
-    'HandsetPortrait is on'
-    );
-  }
-  });
+    this.responsive.observe("(max-width: 800px)")
+    .subscribe(result => {
+      this.isPhoneviewed = false;
+      if (result.matches) {
+        this.isPhoneviewed = true;
+      } {
+        console.log(
+        'HandsetPortrait is on'
+        );
+      }
+    });
   }
 
   

@@ -4,6 +4,7 @@ import { FeedComponent } from "./feed.component";
 import { NgModule } from "@angular/core";
 import { MatchComponent } from "../my-matches/match/match.component";
 import { MatchModule } from "../my-matches/match/match.module";
+import { PlayerModule } from "../players/player/player.module";
 
 
 
@@ -14,7 +15,8 @@ import { MatchModule } from "../my-matches/match/match.module";
   imports: [
     CommonModule,
     FeedRoutingModule,
-    MatchModule
+    MatchModule,
+    PlayerModule
   ]
 })
 export class FeedModule { }

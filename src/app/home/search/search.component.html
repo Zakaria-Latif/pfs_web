@@ -8,24 +8,27 @@
 </div>
 
 <!-- Matches -->
-<!-- <div class="search__page slideInDown" *ngFor="let match of searchService.getSearchMatches() | async; let i=index;">
+<div class="search__page slideInDown" *ngFor="let match of searchService.getSearchMatches() | async; let i=index;">
     <app-match [name]="match.name" [location]="match.location"
         [duration]="match.duration" [time]="match.time"
+        [creatorId]="match.creatorId ?? -1"
+        [id]="match.id"
+        [isMember]="isPlayerInMatch(match, match.creatorId ?? -1)"
     ></app-match>
-</div> -->
+</div>
 
 <!-- Players -->
-<div class="search__page slideInDown" *ngFor="let player of searchService.getSearchPlayers() | async; let i=index;">
+<!-- <div class="search__page slideInDown" *ngFor="let player of searchService.getSearchPlayers() | async; let i=index;">
     <app-player [username]="player.username" [location]="player.location" 
         [position]="player.playerStatistics.position"
         [description]="player.description" [matchesNumber]="player.playerStatistics.matchesNumber"
         [createdAt]="player.createdAt" [rate]="player.playerStatistics.rate" [id]="player.id"    
     ></app-player>
-</div>
+</div> -->
 
-<div *ngIf="(searchService.getSearchPlayers() | async)?.length===0 && 
+<!-- <div *ngIf="(searchService.getSearchPlayers() | async)?.length===0 && 
     (searchService.getSearchMatches() | async)?.length===0 && !searchService.getLoading()"
     class="search__page slideInDown">
     <p>We Couldn't Find Any Match Buddy!</p>
     <img src="../../../assets/error/not_found.svg" alt="Not Found">
-</div>
+</div> -->
