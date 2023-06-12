@@ -13,6 +13,11 @@
     ></app-notification>
 </section>
 
+<section class="slideInDown" *ngIf="(notificationsService.getMyNotifications() | async)?.length===0" style="display: grid; place-items: center; gap: 2rem;">
+  <h3>Got No Notifications Yet</h3>
+  <img src="./../../../assets/others/noNotifications.svg" alt="" style="width: 60%; height: auto;">
+</section>
+
 
 
 <div *ngIf="requestsInvitationsService.modal.isModalOn" style="z-index: 9999;" class="slideInDown flex-col space-y-4 min-w-screen h-screen animated fadeIn faster  fixed  left-0 top-0 flex justify-center items-center inset-0 z-50 outline-none focus:outline-none bg-white bg-opacity-50">

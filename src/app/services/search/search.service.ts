@@ -62,20 +62,26 @@ export class SearchService {
           maxDuration: $maxDuration, 
           dateFrom: $dateFrom, 
           dateTo: $dateTo }) {
-          id
-          name
-          location
-          time
-          duration
-          creatorId
-          creator {
-            username
-          }
-          playersList: players {
-            player {
-              username
+            id,
+            creatorId,
+            playersNumber,
+            name,
+            location,
+            duration,
+            time,
+            playersList: players{
+              player{
+                id,
+                username
+              }
             }
-          }
+            creator{
+              username,
+              id
+            },
+            invitations{
+              creatorId
+            }
         }
       }
     `;

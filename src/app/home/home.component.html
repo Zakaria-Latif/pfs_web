@@ -77,7 +77,7 @@
                 <span class="material-symbols-outlined">chat</span>
                 <span class="text">Chat Rooms</span>
             </a>
-            <a [routerLink]="['/home', 'notifications']" routerLinkActive="active-link" class="notificatons__web">
+            <a [routerLink]="['/home', 'notifications']" routerLinkActive="active-link" [attr.notsNum]="(homeService.getPlayer() | async)?.notifications?.length" class="notificatons__web">
                 <span class="material-symbols-outlined">notifications</span>
                 <span class="text">Notifications</span>
             </a>

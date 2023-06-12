@@ -29,7 +29,10 @@ export class HomeService {
           query player($id: Int!) { 
             player(id: $id){
               id,
-              username
+              username,
+              notifications{
+                id
+              }
             }
           }
         `,

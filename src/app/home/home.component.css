@@ -346,15 +346,17 @@ nav > .active-link{
 }
 
 .notificatons__web::after{
-    content: '20';
+    content: attr(notsNum);
     background-color: red;
     color: white;
     border-radius: 1rem;
     position: absolute;
     inset: -90% 0 auto auto;
-    padding: 0.1rem 0.2rem;
+    padding: 0.1rem 0.4rem;
     font-size: small;
     font-weight: 900;
+    display: grid;
+    place-items: center;
 }
 .notificatons__mobile::after{
     content: '20';

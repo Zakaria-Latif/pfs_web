@@ -93,18 +93,18 @@
   <span class="material-symbols-outlined" (click)="toggleViewMember()">
       close
   </span>
+   <div class="no__members grid place-items-center" >
+    <p class=""  *ngIf="(matchesService.getMembers()| async)?.length===0 && !matchesService.getLoading()">There are no members in this match be the first</p>
+    <img  *ngIf="(matchesService.getMembers()| async)?.length===0 && !matchesService.getLoading()" src="../../../assets/others/welcome-cats.svg" alt="No Members Yet" class="w-full" >
+    <button (click)="joinMatch()" *ngIf="!hasSentInvitationOne(currentMatchId)">Join</button>
+  </div>
   <app-player *ngFor="let item of matchesService.getMembers() | async;"
     [username]="item?.player.username" [location]="item.player.location" 
     [position]="item.position"
     [description]="item.player.description" [matchesNumber]="item.player.playerStatistics.matchesNumber"
     [createdAt]="item.player.createdAt" [rate]="item.rate" [id]="item.id" 
   ></app-player>
-  <div class="no__members grid place-items-center" 
-    *ngIf="(matchesService.getMembers()| async)?.length===0 && !matchesService.getLoading()">
-    <p class="">There are no members in this match be the first</p>
-    <img src="../../../assets/others/welcome-cats.svg" alt="No Members Yet" class="w-full" >
-    <button (click)="joinMatch()">Join</button>
-  </div>
+ 
   <div class="loaders" *ngIf="matchesService.getLoading()">
     <span class="background__loader"></span>
     <span class="background__loader"></span>

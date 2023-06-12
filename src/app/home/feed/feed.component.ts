@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators';
 import { FeedService } from 'src/app/services/feed/feed.service';
 import { MatchesService } from 'src/app/services/matches/matches.service';
 import { LocalStorageService } from 'src/app/services/localStorage/local-storage.service';
+import { RequestsInvitationsService } from 'src/app/services/requestsInvitations/requests-invitations.service';
 
 @Component({
   selector: 'app-feed',
@@ -14,7 +15,8 @@ import { LocalStorageService } from 'src/app/services/localStorage/local-storage
 })
 export class FeedComponent {
 
-  constructor(public feedService: FeedService, private apollo: Apollo, public matchesService: MatchesService, public localStorageService: LocalStorageService) { }
+  constructor(public feedService: FeedService, private apollo: Apollo, public matchesService: MatchesService, 
+    public localStorageService: LocalStorageService, public RequestsInvitationsService: RequestsInvitationsService) { }
   isOnEdit=false;
   isViewMembersOn=false;
   currentMatchId=-1;
@@ -64,5 +66,9 @@ export class FeedComponent {
 
   setCurrentMatchId(id: number){
     this.currentMatchId=id;
+  }
+
+  hasSentInvitationOne(matchId: number){
+    return this.RequestsInvitationsService.acceptedOrRefusedInvitationsIds$.getValue().some(id=>id=matchId);
   }
 }

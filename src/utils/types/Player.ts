@@ -9,6 +9,7 @@ export class Player {
     rate: number=0;
     matchesNumber: number=0;
     position: string="";
+    notifications: any[]=[];
   
     // constructor(
     //   id: number,
