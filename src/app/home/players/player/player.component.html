@@ -4,14 +4,14 @@
             <img src="https://i.pravatar.cc/111" alt="Player Avatar" loading="lazy">
         </div>
         <h4 class="username">{{username}}</h4>
-        <button>Add To Match</button>
+        <button *ngIf="canAddToMatch">Add To Match</button>
     </header>
     
     <div class="main">
         <p class="rate">{{rate}} Rate</p>
         <p class="matches__number">{{matchesNumber}} Matches</p>
         <p class="position">{{position}}</p>
-        <p class="location">{{location}}</p>
+        <p class="location" *ngIf="location">{{location}}</p>
     </div>
 
     <p class="bio">

@@ -1,19 +1,24 @@
+<div class="loaders" *ngIf="homeService.getLoading() | async">
+    <span class="background__loader"></span>
+    <span class="background__loader"></span>
+    <span class="background__loader"></span>
+</div>
 <section class="home fadeIn">
     <header>
         <div class="ava__username">
             <div class="ava__wrapper"><img src="../../assets/sports/soccer.svg" alt="Avatar"></div>
-            <p class="username">El Ouali</p>
+            <p class="username">{{(homeService.getPlayer() | async)?.username}}</p>
         </div>
         <form class="search shadow shadow-slate-300 flex-1 py-6" (submit)="search($event)">
             <input class="px-2" type="text" placeholder="Search matches, players..." [value]="searchTerm" (input)="onSearchInput($event)">
-            <button type="button" (click)="toggleFilter()" class="m-auto grid place-items-center">
+            <!-- <button type="button" (click)="toggleFilter()" class="m-auto grid place-items-center">
                 <span *ngIf="isFilterClosed" class="material-symbols-outlined">tune</span>
                 <span *ngIf="!isFilterClosed" class="material-symbols-outlined">close</span>
-            </button>
+            </button> -->
             <button type="submit" class="m-auto grid place-items-center">
                 <span class="material-symbols-outlined">search</span>
             </button>
-            <app-filters *ngIf="!isFilterClosed"></app-filters>
+            <!-- <app-filters *ngIf="!isFilterClosed"></app-filters> -->
             <div *ngIf="isTypingAtSearch" #myDiv>
                 <app-completions [currentSuggestion]="searchTerm" (dispatchSuggestion)="setSearchTerm($event)" [suggestions]="completions"></app-completions>
             </div>
@@ -72,7 +77,7 @@
                 <span class="material-symbols-outlined">chat</span>
                 <span class="text">Chat Rooms</span>
             </a>
-            <a [routerLink]="['/home', 'notifications']" routerLinkActive="active-link" class="notificatons__web">
+            <a [routerLink]="['/home', 'notifications']" routerLinkActive="active-link" [attr.notsNum]="(homeService.getPlayer() | async)?.notifications?.length" class="notificatons__web">
                 <span class="material-symbols-outlined">notifications</span>
                 <span class="text">Notifications</span>
             </a>
@@ -139,4 +144,11 @@
         </a>
     </div>
 </section>
+
+<div *ngIf="matchesService.getLoading()" class="fixed top-0 left-0 right-0 bottom-0 flex items-center justify-center z-50 bg-transparent">
+    <span class="loader"></span>
+</div>
+  
+  
+  
 

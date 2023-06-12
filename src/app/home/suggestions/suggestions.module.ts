@@ -4,6 +4,7 @@ import { SuggestionsRoutingModule } from './suggestions-routing.module';
 import { SuggestionsComponent } from './suggestions.component';
 import { SuggestionComponent } from './suggestion/suggestion.component';
 import { MatchModule } from '../my-matches/match/match.module';
+import { PlayerModule } from '../players/player/player.module';
 
 
 
@@ -17,7 +18,8 @@ import { MatchModule } from '../my-matches/match/match.module';
   imports: [
     CommonModule,
     SuggestionsRoutingModule,
-    MatchModule
+    MatchModule,
+    PlayerModule
   ]
 })
 export class SuggestionsModule { }

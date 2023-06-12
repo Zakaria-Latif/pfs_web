@@ -1,16 +1,18 @@
-<section class="signup slideInUp">
+
+<span class="loader" *ngIf="authService.getLoading()"></span>
+<section class="signup slideInDown">
     <div class="signup__pic">
         <img src="../../../assets/auth/login.svg" alt="Login">
     </div>
     <form class="fields"  #signupForm="ngForm" (ngSubmit)="onSubmit(signupForm)">
         
         <div class="field">
-            <label for="email"></label>
-            <input id="email" type="text" placeholder="Email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" name="email" [(ngModel)]="user.email" required>
-            <p *ngIf="signupForm.controls['email'].invalid && (signupForm.controls['email'].dirty || signupForm.controls['email'].touched)">
-                This email is not valid
+            <label for="username"></label>
+            <input type="text" placeholder="Username" pattern="[a-zA-Z0-9_-]{3,20}" name="username" [(ngModel)]="user.username" required>
+            <p *ngIf="signupForm.controls['username'].invalid && (signupForm.controls['username'].dirty || signupForm.controls['username'].touched)">
+              Username should have at least 3 characters
             </p>
-        </div>
+          </div>
         <div class="field">
             <label for="password"></label>
             <input id="password" type="password" placeholder="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}" name="password" [(ngModel)]="user.password" required>
@@ -18,7 +20,7 @@
                 Password should have at least 8 characters, one capital letter and at least one special character
             </p>
         </div>
-        <button (click)="login()" type="button" >Log In</button>
+        <button type="submit" >Log In</button>
         <a [routerLink]="['/welcome', 'signup']">Don't Have An Account?!</a>
         <p>Or Log In with</p>
         <div class="icons">

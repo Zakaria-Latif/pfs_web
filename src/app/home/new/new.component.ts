@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatchesService } from 'src/app/services/matches/matches.service';
 import { Match } from 'src/utils/types/Match';
 
 @Component({
@@ -7,13 +8,24 @@ import { Match } from 'src/utils/types/Match';
   styleUrls: ['./new.component.css']
 })
 export class NewComponent {
-
-  match: Match = new Match();
-
-  onSubmit() {
+  constructor(public matchesService: MatchesService){}
+  
+  onSubmit(newMatch: {
+    name: string,
+    location: string,
+    time: string,
+    duration: number,
+    prize: string;
+    playersNumber: number
+  }) {
     // TODO: Handle form submission
-    console.log(this.match);
+    this.matchesService.addMatch({
+      ...newMatch, 
+      time: new Date(newMatch.time).toISOString()
+    });
   }
+
+  
 
   onFileSelected(event: any) {
     // TODO: Handle file selection

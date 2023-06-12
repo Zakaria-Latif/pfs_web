@@ -19,14 +19,26 @@ export class FeedService {
       .watchQuery<any>({
         query: gql`
           query matches {
-            matches(paginationInput:{skip: 1, take:16}){
+            matches(paginationInput:{skip: 1, take:76}){
               id,
+              creatorId,
+              playersNumber,
               name,
               location,
               duration,
               time,
+              playersList: players{
+                player{
+                  id,
+                  username
+                }
+              }
               creator{
-                username
+                username,
+                id
+              },
+              invitations{
+                creatorId
               }
             }
           }

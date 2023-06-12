@@ -28,7 +28,15 @@ button{
     border-radius: 1rem;
     padding: 0.5rem;
     margin-left: 0.5rem;
+    padding: 0.2rem 0.5rem;
+    color: #dbdde6;
+    background-color: #230f6d;
+    display: grid;
+    place-items: center;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
 }
+
 
 
 .match .widgets{
@@ -50,7 +58,7 @@ button{
     gap: 1rem;
 }
 
-.head > .view__members{
+.view__members{
     position: fixed;
     inset: 0 0 0 auto;
     overflow-y: auto;
@@ -64,8 +72,9 @@ button{
 
 
 .view__members > span{
-    position: fixed;
-    inset: 1rem 1rem auto auto;
+    position: sticky;
+    inset: 0.5rem 0 auto auto;
+    float: right;
     color: white;
     background-color: #230f6d;
     border-radius: 50%;
@@ -75,7 +84,7 @@ button{
 }
 
 @media screen and (max-width: 500px) {
-    .head > .view__members{
+    .view__members{
         position: fixed;
         inset: 0 0 0 0;
         overflow-y: auto;
@@ -121,6 +130,11 @@ button{
     font-family: "Poppins";
     flex-grow: 1;
     margin-top: 0.2rem;
+    background-color: var(--primary-color);
+}
+
+.buttons__links > button > .material-symbols-outlined{
+    color: var(--secondary-color);
 }
 
 .head{
@@ -159,14 +173,16 @@ button{
     grid-template-columns: auto 1fr;
     gap: 0.5rem;
     place-items: center;
+
 }
 
 .coord span{
     color: rgb(12, 12, 87);
+    font-weight: 800;
 }
 
 .coord p{
-    font-weight: 800;
+    font-weight: 200;
     font-size: small;
 }
 .widgets section{
@@ -210,4 +226,14 @@ button{
     width: 100%;
     height: auto;
     /* border-radius: 0.5rem; */
+}
+
+.buttons__links > button{
+    padding: 0.3rem 1rem;
+    background-color: #f7f7fa;
+    display: grid;
+    place-items: center;
+    gap: 1rem;
+    grid-template-columns: auto 1fr;
+    color: #230f6d;
 }

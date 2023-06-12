@@ -4,26 +4,19 @@
             <div class="img__wrapper">
                 <img src="../../../../assets/sports/football.svg" alt="Avatar" loading="lazy">
             </div>
-            <h4 class="name">GI2 Kesh</h4>
+            <h4 class="name">{{name}}</h4>
             <button *ngIf="!isAddedToCalendar" (click)="addToCalendar()">
-                + To Calendar
+                <span class="material-symbols-outlined">calendar_month</span>
+                <span style="color: #dbdde6;" >+ To Calendar</span>
             </button>
             <button *ngIf="isAddedToCalendar" (click)="removeFromCalendar()">
-                - From Calendar
+                <span class="material-symbols-outlined">calendar_month</span>
+                <span  style="color: #dbdde6;" >- From Calendar</span>
             </button>
-            <button (click)="toggleViewMember()">
-                {{isViewMembersOn ? "Hide ": "View "}}Members
+            <button (click)="viewMembers(id)">
+                <span class="material-symbols-outlined">diversity_3</span>
+                <span style="color: #dbdde6;" >View Members</span>
             </button>
-            <div class="view__members slideInRight" *ngIf="isViewMembersOn">
-                <span class="material-symbols-outlined" (click)="toggleViewMember()">
-                    close
-                </span>
-                <app-player></app-player>
-                <app-player></app-player>
-                <app-player></app-player>
-                <app-player></app-player>
-                <app-player></app-player>
-            </div>
         </div>
         <div class="coords">
             <div class="coord">
@@ -50,7 +43,7 @@
         </div>
         <div class="members">
            <div class="avas">
-                <div *ngFor="let url of membersImages; let i = index" class="images img__wrapper img__border member__ava" 
+                <div *ngFor="let url of membersImages.slice(0, currentCapacity <=6 ? currentCapacity: 6); let i = index" class="images img__wrapper img__border member__ava" 
                     [ngStyle]="{'transform': 'translateX(' + (i*80 - 80) + '%)', 'z-index': i}">
                     <img [src]="url" alt="" loading="lazy">
                 </div>
@@ -62,9 +55,54 @@
         </section>
     </div>
     <div class="buttons buttons__links" *ngIf="!isSuggested">
-        <button *ngIf="isOwner" (click)="deleteMatch()">Delete</button>
-        <button *ngIf="isOwner" (click)="editMatch(id)">Edit</button>
-        <button *ngIf="isMember" (click)="openChat()">Chat</button>
-        <button *ngIf="isAddedToCalendar && isMember">Reschedule</button>
+        <button *ngIf="localStorageService.getItem('id')==creatorId" (click)="deleteMatch(id)">
+            <span class="material-symbols-outlined" style="color: rgb(46, 44, 158);">delete</span>
+            <span class="">Delete</span>
+        </button>
+        <button *ngIf="localStorageService.getItem('id')==creatorId" (click)="editMatch(id)">
+            <span class="material-symbols-outlined" style="color: rgb(46, 44, 158);">edit</span>
+            <span>Edit</span>
+        </button>
+        <button *ngIf="isMember" (click)="openChat()">
+            <span class="material-symbols-outlined" style="color: rgb(46, 44, 158);">chat</span>
+            <span>Chat</span>
+        </button>
+        <button *ngIf="!isMember && localStorageService.getItem('id')!==creatorId && !hasSentInvitation && (matchesService.getCurrentSentInvitationMatchId() | async)!==id" (click)="viewMembers(id)">
+            <span class="material-symbols-outlined" style="color: rgb(46, 44, 158);">join</span>
+            <span>Join</span>
+        </button>
+        <button *ngIf="hasSentInvitation || (matchesService.getCurrentSentInvitationMatchId() | async)===id">
+            <span class="material-symbols-outlined" style="color: rgb(46, 44, 158);">join</span>
+            <span>Awaiting Approval</span>
+        </button>
+        <button *ngIf="isAddedToCalendar && isMember">
+            <span class="material-symbols-outlined" style="color: rgb(46, 44, 158);">calendar_month</span>
+            <span>Reschedule</span>
+        </button>
     </div>
 </div>
+
+
+<div *ngIf="modal.isModalOn" style="z-index: 9999;" class="slideInDown flex-col space-y-4 min-w-screen h-screen animated fadeIn faster  fixed  left-0 top-0 flex justify-center items-center inset-0 z-50 outline-none focus:outline-none bg-white bg-opacity-50">
+    <div class="flex flex-col p-8 bg-white shadow-md hover:shodow-lg rounded-2xl">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg"
+            class="w-16 h-16 rounded-2xl p-3 border border-blue-100 text-blue-400 bg-blue-50" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+          <div class="flex flex-col ml-3">
+            <div class="font-medium leading-none">{{modal.title}}</div>
+            <p class="text-sm text-gray-600 leading-none mt-1">{{modal.info}}
+            </p>
+          </div>
+        </div>
+        <button (click)="modal.buttonActionPositive()" class="flex-no-shrink bg-red-500 px-5 ml-4 py-2 text-sm shadow-sm hover:shadow-lg font-medium tracking-wider border-2 border-red-500 text-white rounded-3x" style="background-color: red; border-radius: 1rem;">Delete</button>
+        <button (click)="modal.buttonActionNegative()" class="flex-no-shrink bg-red-500 px-5 ml-4 py-2 text-sm shadow-sm hover:shadow-lg font-medium tracking-wider border-2 border-red-500 text-white rounded-3xl" style="border-radius: 1rem;">Cancel</button>
+      </div>
+    </div>
+  </div>
+  
+  

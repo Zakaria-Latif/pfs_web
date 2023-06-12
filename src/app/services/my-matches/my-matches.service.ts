@@ -19,8 +19,9 @@ export class MyMatchesService {
       .watchQuery<any>({
         query: gql`
           query myMatches {
-            myMatches(paginationInput:{skip: 1, take:16}){
+            myMatches(paginationInput:{skip: 0, take:300}){
               id,
+              creatorId,
               name,
               location,
               duration,

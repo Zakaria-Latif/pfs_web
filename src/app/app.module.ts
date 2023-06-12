@@ -12,6 +12,7 @@ import { HttpLink } from 'apollo-angular/http';
 import { HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { InMemoryCache } from '@apollo/client/core';
 import { StoreModule } from '@ngrx/store';
+import { LocalStorageService } from './services/localStorage/local-storage.service';
 
 // ng generate module welcome/services --route services --module welcome.module
 @NgModule({
@@ -29,12 +30,11 @@ import { StoreModule } from '@ngrx/store';
   ],
 
   providers: [
+    LocalStorageService,
     {
       provide: APOLLO_OPTIONS,
-      useFactory(httpLink: HttpLink) {
-        //we 'll change it later
-        // const token = localStorage.getItem('token');
-        const authHeader = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRpd2Vlenl5cm9zIiwic3ViIjoyOCwiaWF0IjoxNjg0MDU4MzgyLCJleHAiOjE2ODQxNDQ3ODJ9.AIdJwz5ZTHjB6U28FroyVgXB3y0cHF5mJkiFkGgkwKU';
+      useFactory(httpLink: HttpLink, localStorageService: LocalStorageService) {
+        const authHeader = `Bearer ${localStorageService?.getItem("token") ?? ""}`;
         const headers = new HttpHeaders().set('Authorization', authHeader);
         return {
           cache: new InMemoryCache(),
@@ -45,7 +45,7 @@ import { StoreModule } from '@ngrx/store';
         };
       },
       
-      deps: [HttpLink],
+      deps: [HttpLink, LocalStorageService],
     },
   ],
   bootstrap: [AppComponent]

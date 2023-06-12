@@ -15,6 +15,9 @@ import { PlayerComponent } from './player/player.component';
     CommonModule,
     PlayersRoutingModule,
     PlayerModule
+  ],
+  exports:[
+    PlayerComponent
   ]
 })
 export class PlayersModule { }
